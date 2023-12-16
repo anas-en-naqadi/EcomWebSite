@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../CSS/NavBarStyle.css">
+        <link rel="stylesheet" href="../CSS/Index.css">
+        <link rel="stylesheet" href="../CSS/WatchPage.css">
+        <link rel="stylesheet" href="../CSS/Spinner.css">
+        <link rel="stylesheet" href="../CSS/panier.css">
+        <link rel="stylesheet" href="../CSS/footer.css">
+        <link rel="stylesheet" href="../CSS/Login.css">
+        <link rel="stylesheet" href="../CSS/PhonesPage.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <title>MONTRES</title>
+        <style>
+            .headPhone span.prodectPrice , .Element span.prodectPrice{
+                color: #FF9900 !important;
+            }
+            .containerHeader{
+                background-color: #FF9900 ;
+            }
+            .containerParent{
+                margin-top: 120px;
+            }
+
+            main{
+                    margin-top: 25px !important;
+                }
+        </style>
+    </head>
+    <body>
+      
+       
+        <script src="/EcomWebSite-main2/Site Web Ecommerce/backend/JS/phonesPage/findProduct.js" ></script>
+        <header>
+            <ul class="NavUl">
+                <li>
+                    <a href="../Html/index.html">
+                        <img src="../Uploads/navLogo.PNG" alt="Logo" style="width: 200px;height: 80px; margin-bottom: -30px;margin-top: -20px;"></li>
+                    </a>
+                <li>
+                    <input class="NavElement" type="text" name="Search" id="in1"  oninput="filterData('WatchLists')" placeholder="Chercher un produit,une marque ou une catégorie">
+                    <div id="dropdown" class="dropdown-content" style="margin-left: -35px !important;"></div>
+
+                </li>
+                <li class="AllBtns">
+                    <button id="CatB">
+                        <span>Catégories</span>
+                        <div class="AllCat">
+                            <div>
+                                <a href="../Html/PhonesPage.html">Téléphones</a>
+                            </div>
+                            <div>
+                                <a href="../Html/PcPages.html">Ordinateurs</a>
+                            </div>
+                            <div>
+                                <a href="../Html/WatchPages.html">SmartWatches</a>
+                            </div>
+                            <div>
+                            <a href="../Html/TvPages.html">Télévision</a>
+                            </div>
+                        </div>
+                    </button>
+                    <button id="LoginB" onclick="ShowLogInForm()">Connexion</button>
+                    <a style="display: none;" id="user" href="../Html/userHome.html"> <span id="nom-user"></span></a>
+                    <button class="NavElement bouttonNav" onclick="goToCartProd()" id="PanierB" type="button" style="cursor:pointer;">
+                        <span style="cursor: pointer;">Panier <span id="panierCount" style="color: red;">0</span></span>
+                      
+                    </button>
+                </li>
+            </ul>
+        </header>
+
+        <div class="containerParent">
+            <div class="containerHeader">Montres & Accesioires</div>
+
+            <div class="container container1" id="container1">
+                <div class="right-arrow active">
+
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                      </svg> 
+                </div>
+
+                <ul class="headWatch ElementPhone">
+              
+
+                </ul>
+
+                <div class="left-arrow">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+                      </svg>                    
+                </div>
+            </div>
+        </div>
+
+
+        <main>
+
+            <!-- fillter -->
+            <div class="sidbar">
+                <form action="" class="sidbarForm" id="form">
+                    <div class="containerPriceInput filter">
+                        <span class="sidbarElement">Prix (DH)</span>
+                        <div>
+                            <label for="MinPriceInput fl" >Min </label>
+                            <input class="sidbarElement PriceInput" id="MinPriceInput" type="number" min="0" required>
+                            <label for="MaxPriceInput fl">Max </label>
+                            <input class="sidbarElement PriceInput" id="MaxPriceInput" type="number" min="0" required>
+                        </div>          
+                        <div class="sidbarBTN">
+                            <button class="sidbarElement" type="button" onclick="filterByPrice('watch','WatchLists')">APPLIQUER</button>
+                            <button class="sidbarElement" type="button" onclick="resetFilter()">RESET</button>
+                        </div>
+                    </div>
+                    <hr>
+                  
+                </form>
+            </div>
+
+            
+            <div class="ListProductsContainer">
+                <div class="WatchLists">
+                    
+                </div>
+                <div class="ShowMoreDIV" >
+                    <button class="ShowMoreBTN" id="add_more">+Voir plus</button>
+                </div>
+            </div>
+            
+              <div  class="spinner-container">
+                <div class="spinner" id="spinner">
+                 <img src="../Uploads/giphy.gif" alt="">
+                </div>
+              </div>
+              
+
+
+
+        </main>
+
+ 
+        <!-- Connectrer -->
+        <div class="OverLay" id="OverLayID">
+            <form action="" class="LogInForm" id="LogInFormID">
+                <div class="hDiv">
+                    <h2>Connectez-vous</h2>
+                    <button type="button" onclick="HideLoginForm()">X</button>
+                </div>
+                <div class="message"></div>
+                <input type="email" name="Email" id="Email" placeholder="Email Adresse" required>
+                <input type="password" name="Pass" id="Pass" placeholder="Mot de passe" required>
+                <div class="Pdiv">
+                    <div class="Cdiv">
+                        <input type="checkbox" name="" id="checkbox">
+                        <label for="checkbox">Resté connecté</label>
+                    </div>
+                    <a href="">Mot de passe oublié ?</a>
+                </div>
+                <button type="button" onclick="checkData()">ME CONNECTER</button>
+                <span class="ou">OU</span>
+                <div class="FbDiv">
+                    <span>Connectez-vous avec FaceBook</span>
+                </div>
+                <div class="GDiv">
+                    <span>Connectez-vous avec Google</span>
+                </div>
+                <button class="SignIn" onclick="ShowSignInForm()" type="button">Inscrivez-vous</button>
+            </form>
+        </div>
+
+        <!-- Inscrire -->
+        <div class="OverLay" id="OverLayID2">
+            <form action="" class="SignInForm" id="LogInFormID2">
+                <div class="hDiv">
+                    <h2>Inscrivez-vous</h2>
+                    <button type="button"  onclick="HideSignInForm()">X</button>
+                </div>
+                <input type="email" name="Email" id="EmailInp" placeholder="Email Adresse" required style="display: block;">
+                <input type="text" name="Nom" id="NomInp" placeholder="Nom" required style="display: none;">
+                <input type="text" name="Prenom" id="PrenomInp" placeholder="Prenom" required style="display: none;">
+                <input type="text" name="Phone" id="PhoneID" placeholder="Numéro Télephone" required style="display: none;">
+                <input type="password" name="Pass" id="PassInp" placeholder="Mot de passe" required style="display: none;">
+                <span id="Messg"></span>
+                <button class="Contunue" id="NextID" type="button" onclick="ChangeInput()">CONTUNIER</button>
+                <button type="button" onclick="sendData()" style="display: none;" id="SubmitID">Inscrivez-vous</button>
+                <span class="ou">OU</span>
+                <div class="FbDiv">
+                    <span>Connectez-vous avec FaceBook</span>
+                </div>
+                <div class="GDiv">
+                    <span>Connectez-vous avec Google</span>
+                </div>
+            </form>
+        </div>
+
+
+
+        
+<!-- ------------- Footer ------------ -->
+<footer class="footer">
+    <table>
+        <thead>
+            <tr>
+                <th>Company</th>
+                <th>Get Help</th>
+                <th>Categories</th>
+                <th>Follow Us</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Privacy Policy</td>
+                <td>Payment Options</td>
+                <td><a href="../Html/WatchPages.html">Smart Watches</a></td>
+                <td>Facebook</td>
+            </tr>
+            <tr>
+                <td>Our Services</td>
+                <td>Orders Stauts</td>
+                <td><a href="../Html/PcPages.html">Laptops</a></td>
+                <td>Instagram</td>
+
+            </tr>
+            <tr>
+                <td>About Us</td>
+                <td>Visit Website</td>
+                <td><a href="../Html/PhonesPage.html">Phones</a></td>
+                <td>Youtube</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Shipping</td>
+                <td><a href="../Html/TvPages.html">TV</a></td>
+                <td>LinkedIN</td>
+            </tr>
+        </tbody>
+    </table>
+    
+</footer>
+<img src="/EcomWebSite-main2/Site Web Ecommerce/backend/IMAGES/PC/" alt="">
+        <script src="../JavaScript/main.js"></script>
+        <script src="../JavaScript/PageListAddElement.js"></script>
+        <script src="/EcomWebSite-main2/Site Web Ecommerce/backend/JS/phonesPage/fetchPhones.js"></script>
+        <script src="/EcomWebSite-main2/Site Web Ecommerce/backend/JS/phonesPage/findProduct.js"></script>
+        <script src="/EcomWebSite-main2/Site Web Ecommerce/backend/JS/filters/fetchFilters.js"></script>
+        <script src="/EcomWebSite-main2/Site Web Ecommerce/backend/JS/filters/watchFilter.js"></script>
+        <script src="/EcomWebSite-main2/Site Web Ecommerce/backend/JS/Cart/addToCart.js"></script>
+        <script src="../JavaScript/AfficheFormeProduits.js" ></script>
+        <script src="/EcomWebSite-main2/Site Web Ecommerce/backend/JS/Accounts/SEND.js"></script>
+       
+    </body>
+</html>

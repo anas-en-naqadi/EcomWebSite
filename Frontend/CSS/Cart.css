@@ -1,0 +1,266 @@
+body{
+    background-color: #ecf0f1;
+}
+
+main{
+    width: 85%;
+    height: fit-content;
+    margin: 50px auto;
+    display: flex;
+    gap: 100px;
+    flex-wrap: wrap;
+}
+.ProdectsContainer{
+    width: fit-content;
+    height:fit-content;
+    display: flex;
+    
+    height: fit-content;
+    flex-direction: column;
+    background-color:transparent;
+}
+.pro1{
+    width: 550px;
+    height: fit-content;
+    background-color: #fff;
+    display: flex;
+
+    padding: 17px;
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(5,16,55,.04);
+}
+
+.pro1 span:not(#prixProduit){
+    color: #4d4d4d;
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.Names span#nomProduit{
+    font-weight: 600;
+    color: #000;
+}
+
+#prixProduit{
+    font-weight: bold;
+    font-size: 19px;
+    font-family: "Open Sans",Helvetica,Arial,sans-serif;
+    margin-right: 15px;
+}
+.pro1 div.Names{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 18px;
+    margin-left: 30px;
+    width: 168px;
+    height: 52px;
+    display: flex;
+    gap: 12px;
+    margin-top: 18px;
+}
+.pro1 div.Names{
+    margin-top: 18px;
+    display: flex;
+    justify-content: center;
+}
+.pro1  button.DeleteProdectBTN{
+    width: 20px;
+    height: 20px;
+position: relative;
+    left:230px;
+    top:46px;
+
+  
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+div.Names .InpCont{
+    display: block;
+    width: 93px;
+    height: 30px;
+    margin-right:20px ;
+    border-radius: 5px;
+    border: 1px #ecf0f1 solid;
+    padding: 2px;
+    position: absolute;
+    right: 25px;
+    box-shadow: 0px 4px 20px rgba(5,16,55,.04);
+    margin-top: 30px;
+   
+    color: #000;
+}
+
+div.Names .InpCont .DecrementQ{
+    width: 25px;
+    height: 32px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    font-size: large;
+}
+div.Names .InpCont .IncrimentQ{
+    width: 25px;
+    height: 32px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    font-size: large;
+}
+div.Names .InpCont input{
+    width: 35px;
+    height: 100%;
+    outline: none;
+    text-align: center;
+    border: none;
+    font-size: 15px;
+}
+img{
+    width: 90px;
+    height: 90px;
+}
+
+hr{
+    width: 90%;
+    margin-left: 20px;
+}
+
+/* Total Price */
+.TotalPricesCont{
+    width: fit-content;
+    height: fit-content;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.TotalPricesDiv{
+    width: fit-content;
+    height: fit-content;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(5,16,55,.04);
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 10px;
+}
+
+.TotalPricesDiv hr{
+    width: 99%;
+    margin: 0 auto;
+}
+
+.TotalPricesDiv > div{
+    width: 350px;
+    height: fit-content;
+    display: flex;
+    justify-content: space-between;
+    padding: 18px;
+}
+
+.TotalPricesDiv > div span:first-child:not(.TotalPriceS){
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.TotalPricesDiv > div:nth-child(1) , .TotalPricesDiv > div:nth-child(2){
+    border-bottom: 1px solid gray;
+}
+
+.TotalPrice , .TotalPriceS{
+    font-weight: bolder;
+}
+.FraisLivraison{
+    color: #58c40e;
+    font-style: normal;
+    font-weight: 600;
+}
+
+
+.SubmitBTN{
+    min-height: initial;
+    min-width: initial;
+    max-width: initial;
+    width: auto;
+    height: auto;
+    padding: 13px 42px;
+    color: #fff;
+    border-radius: 30px;
+    text-align: center;
+    background-color: #d40f2d;
+    border: 0;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 700;
+    margin: 10px 0;
+    transition: all .5s;
+    cursor: pointer;
+}
+
+.Pm{
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(5,16,55,.04);
+    display: flex;
+    flex-direction: column;
+    padding: 17px;
+}
+.Pm > div{
+    height: fit-content;
+    text-align: center;
+    padding: 7px;
+    margin-bottom: 20px;
+}
+
+.Pm > div span{
+    font-style: normal;
+    font-weight: 550;
+    font-size: 17px;
+    color: #58c40e;
+    position: relative;
+}
+
+.Pm > div span::before{
+    content: "";
+    width: 16px;
+    height: 16px;
+    outline: none;
+    border: none;
+    margin-top: 2px;
+    background-image: url("/Photo/unlock-svgrepo-com.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size:cover; 
+    position: absolute;
+    left: -23px;
+}
+
+.Pm img{
+    width: 360px;
+    height: 60px;
+
+}
+
+
+.empty{
+    width: 500px;
+   left: 250px;
+   margin-right: 200px;
+    position: relative;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/Order.css">
+    <link rel="stylesheet" href="../CSS/ToastMess.css">
+    <link rel="stylesheet" href="../CSS/Spinner.css">
+    <link rel="stylesheet" href="../CSS/orderDetails.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>CheckOut</title>
+    <style>
+        .OrdHeaser{
+            margin: 150px auto;
+            margin-bottom: 0 !important;
+        }
+        table  {
+            width: 515px;
+        }
+
+        .OrdDetailsDIV{
+            width: 95%;
+            margin-top: 35px !important;
+        }
+        td > img{
+        width: 65px;
+        height: 65px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="NavUl">
+        <li>
+            <a href="../Html/index.html">
+                <img src="../Uploads/navLogo.PNG" alt="Logo" style="width: 200px;height: 80px; margin-bottom: -30px;margin-top: -20px;"></li>
+            </a>
+        </li>
+        <li>
+            <div class="Aide">
+                <div></div>
+                <span>Appelez nous! 0659391487</span>
+            </div>
+        </li>
+        <li>
+            <div class="PmS">
+                <div></div>
+                <span>Paiement sécurisé</span>
+            </div>
+        </li>
+        <li>
+            <div class="Rb">
+                <div></div>
+                <span>Garantie de remboursement</span>
+            </div>
+        </li>
+    </ul>
+    <div class="Steps">
+        <div class="StepsNbr">
+            <div class="S1 ActiveNbr" id="s1id">1</div>
+            <div class="S2" id="s2id">2</div>
+            <div class="S3" id="s3id">3</div>
+        </div>
+        <div class="StepsText">
+            <span>Adresse de livraison</span>
+            <span>Paiement</span>
+            <span>Confirmation</span>
+        </div>
+    </div>
+
+    <main>
+
+        <!-- Adresse Infos -->
+        <div class="UserAdresse" id="UserAdresseID">
+            <h4>Livraison à domicile</h4>
+            <div class="container UserAdresse">
+
+            </div>
+
+            <div class="BTNS">
+                <a class="AddABTN" href="../Html/userHome.html">AJOUTER NOUVELLE ADRESSE</a>
+                <button class="PBTN" onclick="GoToPaiment()">PASSER AU PAIEMENT</button>
+            </div>
+
+        </div>
+
+
+        <!-- Payment -->
+        <div class="Payment" id="PaymentID1" style="display: none;">
+            <h2 style="color: #000;">Choisir le mode de paiement</h2>
+            <div class="PaymentDiv" id="PaymentDivID1">
+
+                <span class="pp1">Paiement en ligne par Paypal</span>
+
+                <div class="PText">
+
+                    <div id="paypal-button-container"></div>
+
+
+                </div>
+
+                <span style="color: #58c40e; font-size: 12px;">Paiement en ligne entièrement sécurisé</span>
+            </div>
+
+            <div class="PaymentDiv" id="PaymentDivID2">
+                <div >
+                    <div class="dd">
+                        
+                        <div class="PaymentIcon"></div>
+    
+                        <div class="PText">
+                            <span class="pp1">Paiement à la livraison</span>
+                            <span style="font-size: 12px;">Votre commande sera payée à la livraison</span>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="BTNS">
+                    <button class="AddABTN" onclick="Back()">ROUTEUR</button>
+                    <button class="PBTN" type="button" onclick="codOrder()">PASSER LA COMMANDE</button>
+                </div>
+            </div> 
+        </div>
+
+
+
+
+        
+
+        <!-- Total PRICE -->
+        <div class="TotalPricesCont">
+            <h4 style="margin-bottom: 20px;">Récapitulatif</h4>
+            <div class="TotalPricesDiv">
+                <div>
+                    <span>Sous total</span>
+                    <span class="SousTotalPrice" id="SousTotalPriceID"></span>
+                </div>
+                <div>
+                    <span>Frais de livraison</span>
+                    <span class="FraisLivraison" id="FraisLivraisonID">Gratuit</span>
+                </div>
+                <div>
+                    <span class="TotalPriceS">Total</span>
+                    <span class="TotalPrice" id="TotalPriceID"></span>
+                </div>
+            </div>
+
+            <div class="Pm">
+
+
+                <div>
+
+                    <span>Paiement 100 % sécurisé</span>
+                </div>
+                <img src="../icons/payment.jpg" alt="">
+            </div>
+        </div>
+
+
+
+       <!-- spinner -->
+       <div  class="spinner-container">
+        <div class="spinner" id="spinner">
+         <img src="../Uploads/giphy.gif" alt="">
+        </div>
+      </div>
+
+
+        <!--  email verification-->
+        <div class="email">
+            <span id="email-message" ></span>
+        </div>
+
+          <!-- Details product              -->
+   <div class="OrdDetailsContainer" id="OrdDetailsContainerID" style="display: block;">
+    <div class="OrdHeaser">
+        <h2>Order détails</h2>
+        <button class="BackBTN" onclick="BackToIndex()">Retour</button>
+    </div>
+    <div class="OrdDetailsDIV">
+        
+        <!-- -------------- LivraisonInfos --------------- -->
+        <div class="LivraisonInfos">
+            <h2>Livraison détails</h2>
+            <hr>
+            <label for="UserNameID">Nom et Prenom</label>
+            <input type="text" name="UserName" id="UserNameID" readonly>
+            <label for="UserEmailID">Email</label>
+            <input type="text" name="UserEmail" id="UserEmailID" readonly>
+            <label for="UserPhoneID">Telephone</label>
+            <input type="text" name="UserPhone" id="UserPhoneID" readonly>
+
+            <label for="">Traking No</label>
+            <input type="text" name="TrackingNo" id="" readonly value="">
+
+            <label for="UserVilleID">Ville</label>
+            <input type="text" name="UserVille" id="UserVilleID" readonly value="">
+            <label for="UserAdresseID">Adresse</label>
+            <input type="text" name="UserAdresse" id="UserAdresseID" readonly value="">
+            <label for="UserCPID">Code Postal</label>
+            <input type="text" name="UserCP" id="UserCPID" readonly value="">
+            <label for="OrderDateID">La date du commande</label>
+            <input type="text" name="OrderDate" id="OrderDateID" readonly value="">
+        </div>
+
+        <!-- ------------ ProduitDetails ------------- -->
+        <div class="ProduitDetails">
+            <h2>Produits détails</h2>
+            <hr>
+            <div class="Tdiv">
+                <table class="ProdectTable">
+                    <thead>
+                        <tr>
+                            <th class="pth" colspan="2">Produit</th>
+                            <th>Prix</th>
+                            <th>Quantité</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody">
+
+                    </tbody>
+                </table>
+
+            </div>
+            <hr>
+            <div class="TotalPriceDIV">
+                <span>Prix Total</span>
+                <span class="TotalPriceValue"></span>
+            </div>
+            <hr>
+            <label for="PaymentID">Méthode de Paiement</label>
+            <input type="text" name="Payment" id="PaymentID" readonly value="Credit Card">
+
+        </div>
+    </div>
+</div>
+
+    </main>
+    <script>
+        function GetAdresse() {
+            let radio = document.getElementById("AdresseRadioID")
+            if(radio.checked){
+                const parent = radio.parentElement.parentElement
+                parent.classList.add("Activepdiv")
+            }
+
+        }
+        function BackToIndex(){
+            window.location.href="http://localhost:3000/EcomWebSite-main2/Site%20Web%20Ecommerce/Frontend/Html/index.html";
+        } 
+        function Back() {
+            document.getElementById("UserAdresseID").style.display = 'flex';
+            document.getElementById("PaymentID1").style.display = 'none';
+            document.getElementById("s2id").classList.remove("ActiveNbr")
+            document.getElementById("s1id").classList.add("ActiveNbr")
+            document.getElementById("s3id").classList.remove("ActiveNbr")
+            document.getElementById('email-message').style.display="none"
+        }
+        function GoToPaiment() {
+            document.getElementById('email-message').style.display="none"
+            document.getElementById("UserAdresseID").style.display = 'none';
+            document.getElementById("PaymentID1").style.display = 'flex';
+            document.getElementById("s2id").classList.add("ActiveNbr")
+            document.getElementById("s1id").classList.add("ActiveNbr")
+            document.getElementById("s3id").classList.remove("ActiveNbr")
+        }
+        function GotoConfirm() {
+         
+            document.getElementById('email-message').style.display="none"
+            document.getElementById("UserAdresseID").style.display = 'none';
+            document.getElementById("PaymentID1").style.display = 'none';
+            document.querySelector('.TotalPricesCont').style.display = "none";
+            document.getElementById('OrdDetailsContainerID').style.display="block"
+            document.getElementById("s2id").classList.add("ActiveNbr")
+            document.getElementById("s1id").classList.add("ActiveNbr")
+           
+        }
+        function ChangeBorder() {
+            let rad1 = document.getElementById("PaymentRadioID")
+            let rad2 = document.getElementById("PaymentRadioID2")
+
+
+            if (rad1.checked) {
+                document.getElementById("PaymentDivID1").classList.add("Activepdiv");
+                document.getElementById("PaymentDivID2").classList.remove("Activepdiv");
+
+            } else if (rad2.checked) {
+                document.getElementById("PaymentDivID2").classList.add("Activepdiv");
+                document.getElementById("PaymentDivID1").classList.remove("Activepdiv");
+
+
+            }
+        }
+        function ChangeBorderAdresse(input) {
+
+
+            const parent = input.closest('.AdresseDiv');
+
+
+
+
+            const container = document.querySelectorAll('.AdresseDiv');
+            container.forEach(element => {
+                const inputs = element.querySelector('input').value;
+                if (!inputs.checked) {
+                    parent.classList.remove("Activepdiv");
+                } else {
+                    parent.classList.add("Activepdiv");
+                }
+            });
+
+
+
+
+        }
+
+
+    </script>
+
+<script src="https://www.paypal.com/sdk/js?client-id=AeGolURIO2sB4QHsFo_m-ePTodOiC0dyjypkZRQgwqyQK3BHVTA7qQ8YXvQUwlw_vK28kTPS3q05Ea9u&currency=USD"></script>
+
+    <script src="/EcomWebSite-main2/Site Web Ecommerce/backend/JS/user/getUserInfo.js"></script>
+    <script src="/EcomWebSite-main2/Site Web Ecommerce/backend/JS/Orders/paiementProc.js"></script>
+    <script src="/EcomWebSite-main2/Site Web Ecommerce/backend/JS/Cart/addToCart.js"></script>
+    <script src="/EcomWebSite-main2/Site Web Ecommerce/backend/JS/Cart/cart.js"></script>
+  
+
+
+
+</body>
+
+</html>
+
+
+
+
+<script>
+
+
+    paypal.Buttons({
+        createOrder: function (data, actions) {
+            // Function to set up the transaction details
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        value: localStorage.getItem('total') // Set your payment amount here
+                    }
+                }]
+            });
+        },
+
+        onApprove: function (data, actions) {
+            // Function to capture the payment when approved
+            return actions.order.capture().then(function (orderData) {
+                // Show a success message or perform further actions
+                const transaction = orderData.purchase_units[0].payments.captures[0];
+
+                let req = new XMLHttpRequest();
+                // Provide the URL for the POST request
+                req.open('POST', 'http://localhost:3000/EcomWebSite-main2/Site%20Web%20Ecommerce/backend/PHP/OrdersComfirm/insertInOrder.php');
+
+                const divs = document.getElementsByClassName('AdresseDiv');
+                let idAdd; // Declare idAdd outside the loop to make it accessible later
+                let payId;
+
+                for (let i = 0; i < divs.length; i++) {
+                    const input = divs[i].querySelector('input');
+
+                    if (input.checked) {
+                        idAdd = divs[i].querySelector('.idAdd').textContent;
+
+                    }
+                }
+                payId = transaction.id;
+                const id_user = localStorage.getItem('id_user');
+
+                // Ensure 'payId' is defined (I assume you're setting it elsewhere)
+                if (typeof payId !== 'undefined' && typeof idAdd !== 'undefined') {
+                    req.onload = function () {
+                        if (req.status === 200 || req.readyState === 4) {
+
+                            const data = JSON.parse(req.response)
+                            document.getElementById("s3id").classList.add("ActiveNbr")
+                                GotoConfirm();
+                            alert(data.status);
+                        } else {
+                            console.error("request failed", req.status);
+                        }
+                    }
+
+                    var form = new FormData();
+                    form.append('id_add', idAdd);
+                    form.append('pay_id', payId);
+                    form.append('id_user', id_user)
+                    form.append('pay_meth', "PAYPAL")
+                    form.append('status', "confirmed")
+                    // Corrected the variable name here
+
+                    req.send(form);
+                } else {
+                    console.error('Either payId or idAdd is undefined. Unable to send data.');
+                }
+
+
+
+
+            });
+        }
+    }).render('#paypal-button-container');
+</script>

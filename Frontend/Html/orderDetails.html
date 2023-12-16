@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/orderDetails.css">
+    <link rel="stylesheet" href="../CSS/spinner.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <div  class="spinner-container">
+        <div class="spinner" id="spinner">
+          <i class="fas fa-spinner fa-spin"></i>
+        </div>
+      </div>
+   <!-- Details product              -->
+   <div class="OrdHeaser">
+    <h2>Order détails</h2>
+    <button class="BackBTN" onclick="BackToIndex()">Retour</button>
+    </div>  
+   <div class="OrdDetailsContainer" id="OrdDetailsContainerID" >
+
+    <div class="OrdDetailsDIV">
+        
+        <!-- -------------- LivraisonInfos --------------- -->
+        <div class="LivraisonInfos">
+            <h2>Livraison détails</h2>
+            <hr>
+            <label for="UserNameID">Nom et Prenom</label>
+            <input type="text" name="UserName" id="UserNameID" readonly>
+            <label for="UserEmailID">Email</label>
+            <input type="text" name="UserEmail" id="UserEmailID" readonly>
+            <label for="UserPhoneID">Telephone</label>
+            <input type="text" name="UserPhone" id="UserPhoneID" readonly>
+
+            <label for="">Traking No</label>
+            <input type="text" name="TrackingNo" id="" readonly value="">
+
+            <label for="UserVilleID">Ville</label>
+            <input type="text" name="UserVille" id="UserVilleID" readonly value="">
+            <label for="UserAdresseID">Adresse</label>
+            <input type="text" name="UserAdresse" id="UserAdresseID" readonly value="">
+            <label for="UserCPID">Code Postal</label>
+            <input type="text" name="UserCP" id="UserCPID" readonly value="">
+            <label for="OrderDateID">La date du commande</label>
+            <input type="text" name="OrderDate" id="OrderDateID" readonly value="">
+        </div>
+
+        <!-- ------------ ProduitDetails ------------- -->
+        <div class="ProduitDetails">
+            <h2>Produits détails</h2>
+            <hr>
+            <div class="Tdiv">
+                <table class="ProdectTable">
+                    <thead>
+                        <tr>
+                            <th class="pth" colspan="2">Produit</th>
+                            <th>Prix</th>
+                            <th>Quantité</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody">
+
+                    </tbody>
+                </table>
+
+            </div>
+            <hr>
+            <div class="TotalPriceDIV">
+                <span>Prix Total</span>
+                <span class="TotalPriceValue"></span>
+            </div>
+            <hr>
+            <label for="PaymentID">Méthode de Paiement</label>
+            <input type="text" name="Payment" id="PaymentID" readonly value="Credit Card">
+
+        </div>
+    </div>
+</div>
+    
+</body>
+
+<script>
+
+     function BackToIndex(){
+            window.location.href="http://localhost:3000/EcomWebSite-main2/Site%20Web%20Ecommerce/Frontend/Html/index.html";
+        } 
+        
+    document.addEventListener('DOMContentLoaded' , ()=>{
+        showSpinner();
+        document.getElementById('OrdDetailsContainerID').style.display="block"
+        getComfOrderDetails("orderDetails")
+    getComfOrderDetails("OrderProd")
+    })
+</script>
+<script src="/EcomWebSite-main2/Site Web Ecommerce/backend/JS/Orders/paiementProc.js" ></script>
+</html>

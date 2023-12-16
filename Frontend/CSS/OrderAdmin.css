@@ -1,0 +1,297 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: "Open Sans",Helvetica,Arial,sans-serif;
+}
+main{
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+
+.SideBar{
+    width: fit-content;
+    height: 137vh;
+    background-color: #e17055;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+
+.AdminLogo{
+    width: 80px;
+    height: 80px;
+    border: 1px solid black;
+    border-radius: 50%;
+    background-image: url("../icons/user-alt-1-svgrepo-com.svg");
+    background-repeat: no-repeat;
+    background-size: 70px 70px;
+    background-position: 4px 9px;
+    margin-top: -60px;
+}
+
+
+.P1{
+    margin-top: -85px;
+    font-size: large;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.AdminLogo{
+    background-color: #f1c40f;
+}
+.SideBarBtn{
+    border: 0;
+    color: #fff;
+    width: 100%;
+    height: fit-content;
+    padding: 10px;
+    text-align: center;
+    font-size: 17px;
+    display: flex;
+    justify-content: start;
+    background-color: transparent;
+    margin-top: -80px;
+}
+
+
+.SideBarBtn:hover{
+    cursor: pointer;
+}
+
+
+.SideBarIcons{
+    width:25px;
+}
+
+
+a{
+    text-decoration: none;
+    color: #fff;
+}
+
+
+.SideBarLink{
+    margin-left: 10px;
+    margin-top: 4px;
+    text-wrap: nowrap;
+    font-size: 20px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+/*------search input--------*/
+
+
+
+#search1,#search2{
+   
+    width: 250px;
+    height: 27px;
+    border: 1px solid gray;
+  
+    padding: 5px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+/* ---- content --------- */
+
+
+.OrdContainer , .OrdDetailsContainer,.OrdContainerUser{
+    width: fit-content;
+    height: fit-content;
+    background-color: #fff;
+    margin:  auto;
+    margin-left: 180px;
+    border-radius: 30px;
+    box-shadow: 0 40px 40px rgba(5,16,55,.04)
+}
+.OrdContainerUser , .OrdContainer , #allProd{
+    margin: 110px auto;
+    flex-direction: column;
+    gap: 30px;
+    padding: 5px;
+}
+
+#allProd{
+    height: 900px;
+    overflow-y: scroll;
+}
+h2{
+    color: #fff;
+}
+.OrdHeaser{
+    height: fit-content;
+    padding: 30px;
+    background-color: crimson;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+
+}
+
+.OrdTableDIV , .OrdDetailsDIV{
+    padding: 30px;
+   
+}
+
+
+.OrdTable{
+    border-collapse:collapse;
+    width: 705px;
+    height: fit-content;
+    border: none;
+}
+
+
+.OrdTable tr:nth-child(2n + 1):not(thead > tr){
+    background-color: #a7b4bd2e;
+   
+}
+td , th{
+    padding: 15px;
+    text-align: center;
+
+
+}
+
+.ViewOrderDetails , .UpdateBTN{
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    background-color: crimson;
+    width: 85%;
+    height: fit-content;
+    padding: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    color: #fff;
+    text-align: center;
+}
+
+
+
+
+/* ---------- Order details -------------- */
+
+.OrdDetailsContainer{
+    width: 900px;
+    display: block;
+    flex-direction: column;
+}
+.OrdHeaser{
+    display: flex;
+    justify-content: space-between;
+}
+.OrdDetailsDIV{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+.LivraisonInfos , .ProduitDetails{
+    width: 47%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    /* border: 2px solid; */
+}
+
+.LivraisonInfos > h2 , .ProduitDetails > h2{
+    color: #000;
+}
+
+
+.LivraisonInfos > hr{
+    width: 100%;
+}
+
+
+.LivraisonInfos > input , #PaymentID , #statutID{
+    width: 100%;
+    height: fit-content;
+    padding: 3px;
+    outline: none;
+    border: 1px solid #979a9b8c;
+    font-size: 15px;
+}
+
+.Tdiv{
+    height: 35%;
+    /* border: 1px solid; */
+    width: fit-content;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.ProdectTable{
+    border-collapse: collapse;
+    border: none;
+    height: 40px;
+
+}
+
+.ProdectTable tr {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid #979a9b8c;
+}
+td > img{
+    width: 50px;
+    height: 50px;
+}
+.ProdectTable td{
+    font-size: 14px;
+}
+
+
+.TotalPriceDIV{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.TotalPriceDIV span:first-child{
+    font-size: 17px;
+    font-weight: 400;
+}
+.TotalPriceDIV .TotalPriceValue{
+    font-weight: 600;
+    font-size: 17px;
+}
+
+.UpdateBTN{
+    width: 110px;
+    padding: 4px;
+}
+
+.BackBTN{
+    outline: none;
+    border: none;
+    background-color: #f1c40f;
+    padding: 7px;
+    border-radius: 10px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+#message1,#message2,#message3{
+    display: none;
+    position: relative;
+    left: 380px;
+    top: 200px;
+    font-size: 18px;
+    font-family: tahoma;
+    font-weight: bold;
+}
+
+.list-choice select{
+height: 30px;
+}

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/panier.css">
+    <link rel="stylesheet" href="../CSS/Spinner.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/Cart.css">
+    <link rel="stylesheet" href="../CSS/NavBarStyle.css">
+    <title>Panier</title>
+    <style>
+        main{
+            margin-top: 120px;
+
+        }
+        .DeleteProdectBTN{
+            position: absolute;
+            top: 20px;
+
+        }
+        .Names{
+            margin-top: 35px !important;
+        }
+        .QantiteDiv{
+            height: fit-content !important;
+            justify-content: space-between !important;
+            gap: 7px !important;
+            
+        }
+        #InpContP{
+            position: absolute !important;
+            top: 77px !important;
+            right: -10px !important;
+            width: 77px !important;
+            height: 16px !important;
+            text-align: center !important;
+        }
+        #InpContP input{
+            height: 16px !important;
+            width: 22px !important;
+        }
+
+        div.Names .InpCont .IncrimentQ , div.Names .InpCont .DecrementQ  {
+            margin-top: -2px !important;
+        }
+        hr{
+            display: none;
+        }
+        .pro1{
+            margin-top: 10px !important;
+            margin-bottom: 10px !important;
+            width: 620px !important;
+        }
+        #nomProduit , #prixProduit{
+            font-weight: bold !important;
+            font-size: 15px !important; 
+            font-family: "Open Sans",Helvetica,Arial,sans-serif !important;
+            margin-right: 15px !important;
+            text-wrap: nowrap !important;
+        }
+
+        .Names{
+            margin-left: 0px !important;
+        }
+        label{
+            font-size: 15px !important;
+        }
+        .TotalPricesDiv > div {
+            font-size: 18px !important;
+            font-weight: 500 !important;  
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <ul class="NavUl">
+            <a href="../Html/index.html">
+                <img src="../Uploads/navLogo.PNG" alt="Logo" style="width: 200px;height: 80px; margin-bottom: -30px;margin-top: -20px;"></li>
+            </a>
+            <li>
+                <input class="NavElement" type="text" name="Search" id="in1"  oninput="searchProd()" placeholder="Chercher un produit,une marque ou une catégorie">
+                <div id="dropdown" class="dropdown-content" style="margin-left: -35px !important;"></div>
+            </li>
+            <li class="AllBtns">
+                <button id="CatB">
+                    <span>Catégories</span>
+                    <div class="AllCat">
+                        <div>
+                            <a href="../Html/PhonesPage.html">Téléphones</a>
+                        </div>
+                        <div>
+                            <a href="../Html/PcPages.html">Ordinateurs</a>
+                        </div>
+                        <div>
+                            <a href="../Html/WatchPages.html">SmartWatches</a>
+                        </div>
+                        <div>
+                        <a href="../Html/TvPages.html">Télévision</a>
+                        </div>
+                    </div>
+                </button>
+                <button id="LoginB" onclick="ShowLogInForm()">Connexion</button>
+                <a style="display: none;" id="user" href="../Html/userHome.html"><span id="nom-user">dgsfsf</span></a>
+                 <button class="NavElement bouttonNav" onclick="goToCartProd()" id="PanierB" type="button">
+                    <span style="cursor: pointer;">Panier <span id="panierCount">0</span></span>
+
+                </button>
+            </li>
+        </ul>
+    </header>
+
+
+
+    <main>
+        <div class="ProdectsContainer" id="ProdectsContainer">
+         
+        </div>
+       <!-- spinner -->
+       <div  class="spinner-container">
+        <div class="spinner" id="spinner">
+         <img src="../Uploads/giphy.gif" alt="">
+        </div>
+      </div>
+
+        <div class="TotalPricesCont">
+            <div class="TotalPricesDiv">
+                <div>
+                    <span style="font-size: 18px !important;">Sous total</span>
+                    <span class="SousTotalPrice" id="SousTotalPriceID"></span>
+                </div>
+
+                <div>
+                    <span  style="font-size: 18px !important;">Frais de livraison</span>
+                    <span class="FraisLivraison" id="FraisLivraisonID">Gratuit</span>
+                </div>
+                <div>
+                    <span class="TotalPriceS">Total</span>
+                    <span class="TotalPrice" id="TotalPriceID"></span>
+                </div>
+
+                <button class="SubmitBTN" onclick="checkLogin()">COMMANDER</button>
+            </div>
+
+            <div class="Pm">
+                <div>
+                    <span>Paiement 100 % sécurisé</span>
+                </div>
+                <img src="../icons/payment.jpg" alt="">
+            </div>
+        </div>
+    </main>
+
+
+    <!-- <script src="../JavaScript/PanierScript.js"></script>
+    <script src="../JavaScript/PanierInDetailsScript.js"></script> -->
+    <script src="/EcomWebSite-main2/Site Web Ecommerce/backend/JS/Cart/addToCart.js" ></script>
+    <script src="/EcomWebSite-main2/Site Web Ecommerce/backend/JS/Cart/cart.js" ></script>
+    <script src="../JavaScript/ChangeInputValue.js" ></script>
+    <script src="/EcomWebSite-main2/Site Web Ecommerce/backend/JS/index.js/fetch.js" ></script>
+</body>
+
+</html>

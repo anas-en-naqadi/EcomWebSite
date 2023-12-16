@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../CSS/NavBarStyle.css">
+        <link rel="stylesheet" href="../CSS/index.css">
+        <link rel="stylesheet" href="../CSS/Spinner.css">
+        <link rel="stylesheet" href="../CSS/Login.css">
+       
+        <link rel="icon" href="../Uploads/logosite.jpg" type="image/png">
+
+        <link rel="stylesheet" href="../CSS/footer.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link rel="stylesheet" href="../CSS/panier.css">
+        <title>Home Page</title>
+
+        <style>
+            .ScrollingBotton{
+                height: 10px;
+                width: 45px;
+                background-color: #636e72;
+                border-radius: 3px !important;
+                border: none;
+                cursor: pointer;
+
+            }
+            .ActiveScrollingBotton{
+                border-radius: 50% !important;
+                height: 20px;
+                width: 20px;
+
+            }
+            .ScrollingBottons{
+                align-items: center;
+            }
+
+            .MainProducts {
+                width: 90% !important;
+                height: 530px !important;
+                margin: 0px auto !important;
+                background-color: #fff !important;
+                position: relative !important;
+                margin-top: 110px !important;
+                border: 1px solid !important;
+                padding: 5px !important;
+            }
+
+            .d2 , .d3 , .d4{
+                display: none ;
+            }
+            .ElementPh li{
+                height: 310px !important;
+            }
+
+
+            .OverLay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 10000;
+    opacity: 1;
+    display: none;
+}
+.LogInForm{
+    width: 400px;
+    height: 520px;
+    background-color: #fff;
+    padding: 18px;
+    font-size: 11px;
+    color: #333;
+    font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+    border-radius: 8px;
+    box-shadow: 0 0 12px 2px rgba(0,0,0,.35);
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    gap: 27px;
+}
+.LogInForm > .hDiv , .SignInForm >.hDiv{
+    display: flex;
+    justify-content: space-between;
+    height: fit-content;
+    align-items: center;
+    border-bottom: 1px solid #d9d9d9;
+}
+.LogInForm > .hDiv > h2 , .SignInForm >.hDiv > h2{
+    margin: 0;
+}
+.LogInForm > .hDiv button , .SignInForm >.hDiv button  {
+    width: 38px;
+    height: 38px;
+    background-image: url("/uploads/close-svgrepo-com.svg");
+    background-size: contain;
+    background-position: center center;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+.LogInForm > input{
+    background-color: #fff;
+    border: 0;
+    border: 1px solid #cccedd;
+    font-size: 14px;
+    height: 37px;
+    padding-left: 8px;
+    border-radius: 4px;
+    outline: none;
+}
+div.Pdiv{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.Cdiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    font-size: 13px;
+}
+input[type='checkbox']{
+    width: 17px;
+    height: 17px;
+}
+.Pdiv > a {
+    color: #000;
+    text-decoration: none;
+    font-size: 13px;
+}
+.Pdiv > a:hover{
+    text-decoration: underline;
+}
+
+button[type = 'submit'] , .Contunue{
+    background-color: #d40f2d !important;
+    color: #fff;
+    outline: none;
+    border: none;
+    text-align: center;
+    font-size: 14px;
+    width: 100%;
+    height: fit-content;
+    padding: 10px;
+    border-radius: 30px;
+    font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+}
+span.ou{
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    color: #d9d9d9;
+    position: relative;
+}
+span.ou::before{
+    content: '';
+    width: 182px;
+    height: 1px;
+    background-color: #d9d9d9;
+    position: absolute;
+    top: 50%;
+    left: 0;
+
+}
+span.ou::after{
+    content: '';
+    width: 182px;
+    height: 1px;
+    background-color: #d9d9d9;
+    position: absolute;
+    top: 50%;
+    right: 0;
+}
+
+.FbDiv , .GDiv{
+    background-color: #fff;
+    color: #000;
+    font-weight: 600;
+    padding: 14px 0;
+    font-size: 13.5px;
+    border-radius: 30px;
+    border: 1px solid #cccedd; 
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+}
+.FbDiv::before{
+    content: '';
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 24px;
+    background-image: url("/uploads/facebook-svgrepo-com.svg");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.GDiv::before{
+    content: '';
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 24px;
+    background-image: url("/uploads/google-svgrepo-com.svg");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.SignIn{
+    color: #d40f2d;
+    text-align: center;
+    font-size: 14px;
+    text-decoration: underline;
+    outline: none;
+    border: none;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+
+
+
+/* ------ SignIn fORM ------------ */
+
+.SignInForm{
+    width: 400px;
+    height: 250;
+    background-color: #fff;
+    padding: 18px;
+    font-size: 11px;
+    color: #333;
+    font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+    border-radius: 8px;
+    box-shadow: 0 0 12px 2px rgba(0,0,0,.35);
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    gap: 27px;
+}
+
+
+
+.SignInForm > input{
+    background-color: #fff;
+    border: 0;
+    border: 1px solid #cccedd;
+    font-size: 14px;
+    height: 37px;
+    padding-left: 8px;
+    border-radius: 4px;
+    outline: none;
+}
+
+
+#Messg{
+    font-size: 12px;
+    font-weight: 500;
+    color: #d40f2d;
+}
+
+
+
+.GoUp{
+    width: 35px;
+    height: 35px;
+    background-image: url("../icons/up-arrow-svgrepo-com.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    position: absolute;
+    cursor: pointer;
+    border: 1px solid #d40f2d;
+    border-radius: 50%;
+    background-color: #fff;
+  
+}
+.GoUpDiv{
+    position: fixed;
+    bottom: 38px;
+    left: 97%;
+    width: 100%;
+    display: none;
+}
+
+
+
+
+
+
+
+        </style>
+    </head>
+    <body>
+        <header>
+            <ul class="NavUl">
+                <li>
+                    <a href="../Html/index.html">
+                        <img src="../Uploads/navLogo.PNG" alt="Logo" style="width: 200px;height: 80px; margin-bottom: -30px;margin-top: -20px;"></li>
+                    </a>
+                <li>
+                    <input class="NavElement" type="text" name="Search" id="in1"  oninput="searchProd()" placeholder="Chercher un produit,une marque ou une catégorie">
+                    <div id="dropdown" class="dropdown-content" style="margin-left: -35px !important;"></div>
+                </li>
+                <li class="AllBtns">
+                    <button id="CatB">
+                        <span>Catégories</span>
+                        <div class="AllCat">
+                            <div>
+                                <a href="../Html/PhonesPage.html">Téléphones</a>
+                            </div>
+                            <div>
+                                <a href="../Html/PcPages.html">Ordinateurs</a>
+                            </div>
+                            <div>
+                                <a href="../Html/WatchPages.html">SmartWatches</a>
+                            </div>
+                            <div>
+                            <a href="../Html/TvPages.html">Télévision</a>
+                            </div>
+                        </div>
+                    </button>
+                    <button id="LoginL" onclick="ShowLogInForm()">Connexion</button>
+                    <a style="display: none;" id="user" href="../Html/userHome.html"><span id="nom-user"></span></a>
+                   <button class="NavElement bouttonNav" onclick="goToCartProd()" id="PanierB" type="button" style="cursor:pointer;">
+                        <span style="cursor: pointer;">Panier <span id="panierCount" style="color: red;">0</span></span>
+                      
+                    </button>
+                </li>
+            </ul>
+        </header>
+        
+           
+        <div class="MainProducts">
+            <div class="d1 Activp" id="d1ID">
+                <a href="" style="width: 100%; height: 532px;"><img src="../Uploads/712x384A70.jpg" style="width: 100%; height: 532px;"></a>
+
+            </div>
+            <div class="d2" id="d2ID">
+                <a href="" style="width: 100%; height: 532px;"><img style="width: 100%; height: 532px;" src="../Uploads/tvImg.png"></a>
+            </div>
+            <div class="d3" id="d3ID">
+                <a href="" style="width: 100%; height: 532px;"><img style="width: 100%; height: 532px;" src="../Uploads/pcIMG.png"></a>
+
+            </div>
+            <div class="d4" id="d4ID">
+                <a href="" style="width: 100%; height: 532px;"><img style="width: 100%; height: 532px;" src="../Uploads/WatchIMG.png"></a>
+
+            </div>
+        
+        <div class="ScrollingBottons" id="ScrollingBottons">
+            <button id="b1" class="ScrollingBotton ActiveScrollingBotton" onclick="ChangeButtonBG(this)"></button>
+            <button id="b2" class="ScrollingBotton" onclick="ChangeButtonBG(this)"></button>
+            <button id="b3" class="ScrollingBotton" onclick="ChangeButtonBG(this)"></button>
+            <button id="b4" class="ScrollingBotton" onclick="ChangeButtonBG(this)"></button>
+        </div>
+
+        <!-- Main -->
+
+        <h2 class="m1">Découvrez nos Téléphones</h2>
+
+        <div class="container1" id="container1">
+            <div class="right-arrow active">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg> 
+            </div>
+            <ul class="ElementPh ElementPhone">
+                <li>
+                    <div class="Element headPhone">
+                        <a href="#"><img src="/Photo/Phones/2979254.jpg" alt=""></a>
+                        <span class="Pmarque itm">Apple</span>
+                        <span class="Pname itm">PHONE 13 512G BLEU</span>
+                        <span class="Pprice itm">15 000 DH</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="Element headPhone">
+                        <a href="#"><img src="/Photo/Phones/2979254.jpg" alt=""></a>
+                        <span class="Pmarque itm">Apple</span>
+                        <span class="Pname itm">PHONE 13 512G BLEU</span>
+                        <span class="Pprice itm">15 000 DH</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="Element headPhone">
+                        <a href="#"><img src="/Photo/Phones/2979254.jpg" alt=""></a>
+                        <span class="Pmarque itm">Apple</span>
+                        <span class="Pname itm">PHONE 13 512G BLEU</span>
+                        <span class="Pprice itm">15 000 DH</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="Element headPhone">
+                        <a href="#"><img src="/Photo/Phones/2979254.jpg" alt=""></a>
+                        <span class="Pmarque itm">Apple</span>
+                        <span class="Pname itm">PHONE 13 512G BLEU</span>
+                        <span class="Pprice itm">15 000 DH</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="Element headPhone">
+                        <a href="#"><img src="/Photo/Phones/2979254.jpg" alt=""></a>
+                        <span class="Pmarque itm">Apple</span>
+                        <span class="Pname itm">PHONE 13 512G BLEU</span>
+                        <span class="Pprice itm">15 000 DH</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="Element headPhone">
+                        <a href="#"><img src="/Photo/Phones/2979254.jpg" alt=""></a>
+                        <span class="Pmarque itm">Apple</span>
+                        <span class="Pname itm">PHONE 13 512G BLEU</span>
+                        <span class="Pprice itm">15 000 DH</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="Element headPhone">
+                        <a href="#"><img src="/Photo/Phones/2979254.jpg" alt=""></a>
+                        <span class="Pmarque itm">Apple</span>
+                        <span class="Pname itm">PHONE 13 512G BLEU</span>
+                        <span class="Pprice itm">15 000 DH</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="Element headPhone">
+                        <a href="#"><img src="/Photo/Phones/2979254.jpg" alt=""></a>
+                        <span class="Pmarque itm">Apple</span>
+                        <span class="Pname itm">PHONE 13 512G BLEU</span>
+                        <span class="Pprice itm">15 000 DH</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="Element headPhone">
+                        <a href="#"><img src="/Photo/Phones/2979254.jpg" alt=""></a>
+                        <span class="Pmarque itm">Apple</span>
+                        <span class="Pname itm">PHONE 13 512G BLEU</span>
+                        <span class="Pprice itm">15 000 DH</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="Element headPhone">
+                        <a href="#"><img src="/Photo/Phones/2979254.jpg" alt=""></a>
+                        <span class="Pmarque itm">Apple</span>
+                        <span class="Pname itm">PHONE 13 512G BLEU</span>
+                        <span class="Pprice itm">15 000 DH</span>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="left-arrow">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+                </svg>                    
+            </div>
+        </div>
+
+
+        
+        <h2 class="m1">Nos recommandation pour les Ordinateurs</h2>
+
+        <div class="container1" id="container2">
+            <div class="right-arrow active">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg> 
+            </div>
+            <ul class="ElementPc ElementPhone">
+                <li>
+                    <div class="Element headPhone">
+                        <a href="#"><img src="/Photo/Phones/2979254.jpg" alt=""></a>
+                        <span class="Pmarque itm">Apple</span>
+                        <span class="Pname itm">PHONE 13 512G BLEU</span>
+                        <span class="Pprice itm">15 000 DH</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="Element headPhone">
+                        <a href="#"><img src="/Photo/Phones/2979254.jpg" alt=""></a>
+                        <span class="Pmarque itm">Apple</span>
+                        <span class="Pname itm">PHONE 13 512G BLEU</span>
+                        <span class="Pprice itm">15 000 DH</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="Element headPhone">
+                        <a href="#"><img src="/Photo/Phones/2979254.jpg" alt=""></a>
+                        <span class="Pmarque itm">Apple</span>
+                        <span class="Pname itm">PHONE 13 512G BLEU</span>
+                        <span class="Pprice itm">15 000 DH</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="Element headPhone">
+                        <a href="#"><img src="/Photo/Phones/2979254.jpg" alt=""></a>
+                        <span class="Pmarque itm">Apple</span>
+                        <span class="Pname itm">PHONE 13 512G BLEU</span>
+                        <span class="Pprice itm">15 000 DH</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="Element headPhone">
+                        <a href="#"><img src="/Photo/Phones/2979254.jpg" alt=""></a>
+                        <span class="Pmarque itm">Apple</span>
+                        <span class="Pname itm">PHONE 13 512G BLEU</span>
+                        <span class="Pprice itm">15 000 DH</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="Element headPhone">
+                        <a href="#"><img src="/Photo/Phones/2979254.jpg" alt=""></a>
+                        <span class="Pmarque itm">Apple</span>
+                        <span class="Pname itm">PHONE 13 512G BLEU</span>
+                        <span class="Pprice itm">15 000 DH</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="Element headPhone">
+                        <a href="#"><img src="/Photo/Phones/2979254.jpg" alt=""></a>
+                        <span class="Pmarque itm">Apple</span>
+                        <span class="Pname itm">PHONE 13 512G BLEU</span>
+                        <span class="Pprice itm">15 000 DH</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="Element headPhone">
+                        <a href="#"><img src="/Photo/Phones/2979254.jpg" alt=""></a>
+                        <span class="Pmarque itm">Apple</span>
+                        <span class="Pname itm">PHONE 13 512G BLEU</span>
+                        <span class="Pprice itm">15 000 DH</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="Element headPhone">
+                        <a href="#"><img src="/Photo/Phones/2979254.jpg" alt=""></a>
+                        <span class="Pmarque itm">Apple</span>
+                        <span class="Pname itm">PHONE 13 512G BLEU</span>
+                        <span class="Pprice itm">15 000 DH</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="Element headPhone">
+                        <a href="#"><img src="/Photo/Phones/2979254.jpg" alt=""></a>
+                        <span class="Pmarque itm">Apple</span>
+                        <span class="Pname itm">PHONE 13 512G BLEU</span>
+                        <span class="Pprice itm">15 000 DH</span>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="left-arrow">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+                </svg>                    
+            </div>
+        </div>
+
+
+        <h2 class="m1">Découvrir aussi les meilleurs choix pour les smartwatches</h2>
+
+        <div class="container1" id="container3">
+            <div class="right-arrow active">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg> 
+            </div>
+            <ul class="ElementWatch ElementPhone">
+                <li>
+                    <div class="Element headPhone">
+                        <a href="#"><img src="/Photo/Phones/2979254.jpg" alt=""></a>
+                        <span class="Pmarque itm">Apple</span>
+                        <span class="Pname itm">PHONE 13 512G BLEU</span>
+                        <span class="Pprice itm">15 000 DH</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="Element headPhone">
+                        <a href="#"><img src="/Photo/Phones/2979254.jpg" alt=""></a>
+                        <span class="Pmarque itm">Apple</span>
+                        <span class="Pname itm">PHONE 13 512G BLEU</span>
+                        <span class="Pprice itm">15 000 DH</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="Element headPhone">
+                        <a href="#"><img src="/Photo/Phones/2979254.jpg" alt=""></a>
+                        <span class="Pmarque itm">Apple</span>
+                        <span class="Pname itm">PHONE 13 512G BLEU</span>
+                        <span class="Pprice itm">15 000 DH</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="Element headPhone">
+                        <a href="#"><img src="/Photo/Phones/2979254.jpg" alt=""></a>
+                        <span class="Pmarque itm">Apple</span>
+                        <span class="Pname itm">PHONE 13 512G BLEU</span>
+                        <span class="Pprice itm">15 000 DH</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="Element headPhone">
+                        <a href="#"><img src="/Photo/Phones/2979254.jpg" alt=""></a>
+                        <span class="Pmarque itm">Apple</span>
+                        <span class="Pname itm">PHONE 13 512G BLEU</span>
+                        <span class="Pprice itm">15 000 DH</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="Element headPhone">
+                        <a href="#"><img src="/Photo/Phones/2979254.jpg" alt=""></a>
+                        <span class="Pmarque itm">Apple</span>
+                        <span class="Pname itm">PHONE 13 512G BLEU</span>
+                        <span class="Pprice itm">15 000 DH</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="Element headPhone">
+                        <a href="#"><img src="/Photo/Phones/2979254.jpg" alt=""></a>
+                        <span class="Pmarque itm">Apple</span>
+                        <span class="Pname itm">PHONE 13 512G BLEU</span>
+                        <span class="Pprice itm">15 000 DH</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="Element headPhone">
+                        <a href="#"><img src="/Photo/Phones/2979254.jpg" alt=""></a>
+                        <span class="Pmarque itm">Apple</span>
+                        <span class="Pname itm">PHONE 13 512G BLEU</span>
+                        <span class="Pprice itm">15 000 DH</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="Element headPhone">
+                        <a href="#"><img src="/Photo/Phones/2979254.jpg" alt=""></a>
+                        <span class="Pmarque itm">Apple</span>
+                        <span class="Pname itm">PHONE 13 512G BLEU</span>
+                        <span class="Pprice itm">15 000 DH</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="Element headPhone">
+                        <a href="#"><img src="/Photo/Phones/2979254.jpg" alt=""></a>
+                        <span class="Pmarque itm">Apple</span>
+                        <span class="Pname itm">PHONE 13 512G BLEU</span>
+                        <span class="Pprice itm">15 000 DH</span>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="left-arrow">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+                </svg>                    
+            </div>
+        </div>
+
+
+
+        <h2 class="m1">Découvrir aussi les meilleurs choix pour les smartwatches</h2>
+
+        <div class="container1" id="container4">
+            <div class="right-arrow active">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg> 
+            </div>
+            <ul class="ElementTv ElementPhone" >
+                <li>
+                    <div class="Element headPhone">
+                        <a href="#"><img src="/Photo/Phones/2979254.jpg" alt=""></a>
+                        <span class="Pmarque itm">Apple</span>
+                        <span class="Pname itm">PHONE 13 512G BLEU</span>
+                        <span class="Pprice itm">15 000 DH</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="Element headPhone">
+                        <a href="#"><img src="/Photo/Phones/2979254.jpg" alt=""></a>
+                        <span class="Pmarque itm">Apple</span>
+                        <span class="Pname itm">PHONE 13 512G BLEU</span>
+                        <span class="Pprice itm">15 000 DH</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="Element headPhone">
+                        <a href="#"><img src="/Photo/Phones/2979254.jpg" alt=""></a>
+                        <span class="Pmarque itm">Apple</span>
+                        <span class="Pname itm">PHONE 13 512G BLEU</span>
+                        <span class="Pprice itm">15 000 DH</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="Element headPhone">
+                        <a href="#"><img src="/Photo/Phones/2979254.jpg" alt=""></a>
+                        <span class="Pmarque itm">Apple</span>
+                        <span class="Pname itm">PHONE 13 512G BLEU</span>
+                        <span class="Pprice itm">15 000 DH</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="Element headPhone">
+                        <a href="#"><img src="/Photo/Phones/2979254.jpg" alt=""></a>
+                        <span class="Pmarque itm">Apple</span>
+                        <span class="Pname itm">PHONE 13 512G BLEU</span>
+                        <span class="Pprice itm">15 000 DH</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="Element headPhone">
+                        <a href="#"><img src="/Photo/Phones/2979254.jpg" alt=""></a>
+                        <span class="Pmarque itm">Apple</span>
+                        <span class="Pname itm">PHONE 13 512G BLEU</span>
+                        <span class="Pprice itm">15 000 DH</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="Element headPhone">
+                        <a href="#"><img src="/Photo/Phones/2979254.jpg" alt=""></a>
+                        <span class="Pmarque itm">Apple</span>
+                        <span class="Pname itm">PHONE 13 512G BLEU</span>
+                        <span class="Pprice itm">15 000 DH</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="Element headPhone">
+                        <a href="#"><img src="/Photo/Phones/2979254.jpg" alt=""></a>
+                        <span class="Pmarque itm">Apple</span>
+                        <span class="Pname itm">PHONE 13 512G BLEU</span>
+                        <span class="Pprice itm">15 000 DH</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="Element headPhone">
+                        <a href="#"><img src="/Photo/Phones/2979254.jpg" alt=""></a>
+                        <span class="Pmarque itm">Apple</span>
+                        <span class="Pname itm">PHONE 13 512G BLEU</span>
+                        <span class="Pprice itm">15 000 DH</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="Element headPhone">
+                        <a href="#"><img src="/Photo/Phones/2979254.jpg" alt=""></a>
+                        <span class="Pmarque itm">Apple</span>
+                        <span class="Pname itm">PHONE 13 512G BLEU</span>
+                        <span class="Pprice itm">15 000 DH</span>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="left-arrow">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+                </svg>                    
+            </div>
+        </div>
+
+
+
+
+        <!-- Connectrer -->
+        <div class="OverLay" id="OverLayID">
+            <form action="" class="LogInForm" id="LogInFormID">
+                <div class="hDiv">
+                    <h2>Connectez-vous</h2>
+                    <button type="button" onclick="HideLoginForm()">X</button>
+                </div>
+                <div class="message"></div>
+                <input type="email" name="Email" id="Email" placeholder="Email Adresse" required>
+                <input type="password" name="Pass" id="Pass" placeholder="Mot de passe" required>
+                <div class="Pdiv">
+                    <div class="Cdiv">
+                        <input type="checkbox" name="" id="checkbox">
+                        <label for="checkbox">Resté connecté</label>
+                    </div>
+                    <a href="">Mot de passe oublié ?</a>
+                </div>
+                <button type="button" onclick="checkData()">ME CONNECTER</button>
+                <span class="ou">OU</span>
+                <div class="FbDiv">
+                    <span>Connectez-vous avec FaceBook</span>
+                </div>
+                <div class="GDiv">
+                    <span>Connectez-vous avec Google</span>
+                </div>
+                <button class="SignIn" onclick="ShowSignInForm()" type="button">Inscrivez-vous</button>
+            </form>
+        </div>
+
+        <!-- Inscrire -->
+        <div class="OverLay" id="OverLayID2">
+            <form action="" class="SignInForm" id="LogInFormID2">
+                <div class="hDiv">
+                    <h2>Inscrivez-vous</h2>
+                    <button type="button"  onclick="HideSignInForm()">X</button>
+                </div>
+                <input type="email" name="Email" id="EmailInp" placeholder="Email Adresse" required style="display: block;">
+                <input type="text" name="Nom" id="NomInp" placeholder="Nom" required style="display: none;">
+                <input type="text" name="Prenom" id="PrenomInp" placeholder="Prenom" required style="display: none;">
+                <input type="text" name="Phone" id="PhoneID" placeholder="Numéro Télephone" required style="display: none;">
+                <input type="password" name="Pass" id="PassInp" placeholder="Mot de passe" required style="display: none;">
+                <span id="Messg"></span>
+                <button class="Contunue" id="NextID" type="button" onclick="ChangeInput()">CONTUNIER</button>
+                <button type="button" onclick="sendData()" style="display: none;" id="SubmitID">Inscrivez-vous</button>
+                <span class="ou">OU</span>
+                <div class="FbDiv">
+                    <span>Connectez-vous avec FaceBook</span>
+                </div>
+                <div class="GDiv">
+                    <span>Connectez-vous avec Google</span>
+                </div>
+            </form>
+        </div>
+        
+        <!-- Go up DIV -->
+        <div class="GoUpDiv" id="GoUpDivID">
+            <button class="GoUp" onclick="GoUpp()"></button>
+        </div>
+
+        <!-- spinner -->
+        <div  class="spinner-container">
+            <div class="spinner" id="spinner">
+             <img src="../Uploads/giphy.gif" alt="">
+            </div>
+          </div>
+<!-- ------------- Footer ------------ -->
+<footer class="footer">
+    <table>
+        <thead>
+            <tr>
+                <th>Company</th>
+                <th>Get Help</th>
+                <th>Categories</th>
+                <th>Follow Us</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Privacy Policy</td>
+                <td>Payment Options</td>
+                <td><a href="../Html/WatchPages.html">Smart Watches</a></td>
+                <td>Facebook</td>
+            </tr>
+            <tr>
+                <td>Our Services</td>
+                <td>Orders Stauts</td>
+                <td><a href="../Html/PcPages.html">Laptops</a></td>
+                <td>Instagram</td>
+                
+
+            </tr>
+            <tr>
+                <td>About Us</td>
+                <td>Visit Website</td>
+                <td><a href="../Html/PhonesPage.html">Phones</a></td>
+                <td>Youtube</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Shipping</td>
+                <td><a href="../Html/TvPages.html">TV</a></td>
+                <td>LinkedIN</td>
+            </tr>
+        </tbody>
+    </table>
+    
+</footer>
+
+        <script src="../JavaScript/main.js"></script>
+        <script>
+            function Scroll(){
+                const b1 = document.getElementById("b1");
+                const b2 = document.getElementById("b2");
+                const b3 = document.getElementById("b3");
+                const b4 = document.getElementById("b4");
+
+                b1.addEventListener("click" , function(){
+                    document.getElementById("d1ID").style.display = 'flex';
+                    document.getElementById("d2ID").style.display = 'none';
+                    document.getElementById("d3ID").style.display = 'none';
+                    // document.getElementById("d4ID").classList.remove("Activp");
+                })
+                b2.addEventListener("click" , function(){
+                    document.getElementById("d1ID").style.display = 'none';
+                    document.getElementById("d2ID").style.display = 'flex';
+                    document.getElementById("d3ID").style.display = 'none';
+                    // document.getElementById("d4ID").classList.remove("Activp");
+
+                })
+                b3.addEventListener("click" , function(){
+                    document.getElementById("d1ID").style.display = 'none';
+                    document.getElementById("d2ID").style.display = 'none';
+                    document.getElementById("d3ID").style.display = 'flex';
+                    // document.getElementById("d4ID").classList.remove("Activp");
+
+                })
+                // b4.addEventListener("click" , function(){
+                //     document.getElementById("").classList.add("Activp");
+                // })
+            }
+            Scroll();
+
+
+            function GoUpp(){
+                window.scrollTo({
+                    top:0,
+                    behavior:'smooth'
+                })
+            }
+        </script>
+        <script>
+           
+           
+        </script>
+
+        <script>
+            function checkScrollHeight() {
+            const scrollHeight = window.scrollY || window.pageYOffset;
+            const specificHeight = 306;
+            
+            if (scrollHeight >= specificHeight) {
+                document.getElementById('GoUpDivID').style.display = 'block';
+            } else {
+                document.getElementById('GoUpDivID').style.display = 'none';
+            }
+            }
+
+            checkScrollHeight();
+            window.addEventListener('scroll', checkScrollHeight);
+
+        </script>
+        <script src="/EcomWebSite-main2/Site Web Ecommerce/backend/JS/index.js/fetch.js" ></script>
+        <script src="/EcomWebSite-main2/Site Web Ecommerce/backend/JS/Cart/addToCart.js" ></script>
+        <script src="/EcomWebSite-main2/Site Web Ecommerce/backend/JS/Accounts/SEND.js"></script>
+        <script src="../JavaScript/main.js"></script>
+        <script src="../JavaScript/AfficheFormeProduits.js" ></script>
+        <script></script>
+
+        <script>
+            const container = document.getElementById("ScrollingBottons");
+            const divs = document.querySelectorAll(".ScrollingBotton");
+            let currentIndex = 0;
+            
+            function scrollToNextDiv() {
+                currentIndex = (currentIndex + 1) % divs.length;
+                const scrollAmount = currentIndex * divs[0].offsetWidth; // Use the width of the first div
+                container.scroll({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                })
+                // Remove 'active' class from all divs
+                divs.forEach(div => div.classList.remove('ActiveScrollingBotton'));
+                // Add 'active' class to the current div
+                divs[currentIndex].classList.add('ActiveScrollingBotton');
+                switch(currentIndex){
+                    case 0:
+                        document.getElementById("d1ID").style.display = 'flex';
+                        document.getElementById("d2ID").style.display = 'none';
+                        document.getElementById("d3ID").style.display = 'none';
+                        document.getElementById("d4ID").style.display = 'none';
+
+                    break; 
+                    case 1:
+                        document.getElementById("d3ID").style.display = 'none';
+                        document.getElementById("d4ID").style.display = 'none';
+                        document.getElementById("d1ID").style.display = 'none';
+                        document.getElementById("d2ID").style.display = 'flex';
+
+                    break; 
+                    case 2:
+                        document.getElementById("d2ID").style.display = 'none';
+                        document.getElementById("d4ID").style.display = 'none';
+                        document.getElementById("d1ID").style.display = 'none';
+                        document.getElementById("d3ID").style.display = 'flex';
+                    break; 
+                    case 3:
+                        document.getElementById("d2ID").style.display = 'none';
+                        document.getElementById("d3ID").style.display = 'none';
+                        document.getElementById("d1ID").style.display = 'none';
+                        document.getElementById("d4ID").style.display = 'flex';
+                    break; 
+                }
+                console.log(currentIndex)
+            }
+                // Auto-scroll every 3 seconds (adjust as needed)
+                setInterval(scrollToNextDiv, 3000);
+
+                // Initialize the first div as active
+                divs[currentIndex].classList.add('ActiveScrollingBotton');
+        </script>
+    </body>
+
+
+</html>

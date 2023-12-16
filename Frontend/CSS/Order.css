@@ -1,0 +1,461 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Open Sans",Helvetica,Arial,sans-serif;
+
+}
+
+body{
+    background-color: #ecf0f1;
+    display: flex;
+    flex-direction: column;
+}
+
+ul.NavUl{
+    background-color: #d40f2d;
+    display: flex;
+    justify-content: space-evenly;
+    height: fit-content;
+    padding: 40px;
+}
+.aide > div{
+    position: relative;
+}
+
+
+li{
+    list-style: none;
+}
+li div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 100%;
+    gap: 7px;
+}
+li div > div:first-child{
+    border: 1px solid #f6b60e;
+    border-radius: 50%;
+    height: 35px;
+    width: 35px;
+}
+
+li div > span{
+    color: #fff;
+    margin-right: 10px;
+    min-height: 29px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: -.12px;
+    line-height: 1.3;
+    margin-top: 5px;
+}
+
+
+.Steps{
+    height: fit-content;
+    background-color: #fff;
+    border-bottom: 1px solid #d9d9d9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    gap: 5px;
+}
+.StepsNbr{
+    width: 46%;
+    display: flex;
+    justify-content: space-between;
+}
+.StepsNbr > div{
+    border: 1px solid #d9d9d9;
+    border-radius: 50%;
+    height: 55px;
+    width: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.StepsNbr > div.S2 , .StepsNbr > div.S3{
+    position: relative;
+}
+
+.StepsNbr > div.S2::before , .StepsNbr > div.S3::before{
+    content: "";
+    width: 236px;
+    height: 2px;
+    background-color: #d9d9d9;
+    position: absolute;
+    left: -236px;
+}
+
+
+.ActiveNbr{
+    background-color: #58c40e;
+    color: #fff;
+}
+.StepsText{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 190px;
+    width: 66%;
+}
+.StepsText span{
+    color: #000;
+    font-weight: 400;
+    font-weight: 700;
+    text-align: center;
+    font-size: 14px;
+}
+.StepsText > span:nth-child(2){
+    margin-left: -30px;
+}
+
+
+main{
+    width: 90%;
+    height: fit-content;
+    margin: 50px auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+/* Adresse Infos */
+
+
+.UserAdresse , .Payment{
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    gap: 15px;
+    margin-top: 30px;
+    position: relative;
+}
+
+.PaymentDiv{
+    flex-direction: column;
+    gap: 20px;
+    
+}
+
+#PaymentID{
+    width: fit-content;
+}
+#paypal-button-container{
+    width: 300px;
+}
+.AdresseDiv , .PaymentDiv{
+    width: 680px;
+    height: fit-content;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    border-radius: 10px;
+    position: relative;
+    align-items: center;
+}
+
+.AdresseDiv {
+    margin-left: 15px
+}
+
+.Activepdiv::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    bottom: -2px;
+    left: -2px;
+    right: -2px;
+    z-index: -1;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #d4112c, #f5b30e);
+}
+
+.AllInfos{
+    display: flex;
+    width: 60%;
+    height: fit-content;
+    gap: 10px;
+    align-items: center;
+}
+.LocalisationIcon{
+    width: 80px;
+    height: 80px;
+    border: 2px solid #f6b60e;
+    border-radius: 8px;
+    background-image: url("../icons/location-pin-svgrepo-com.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 35px 35px;
+    margin-right: 10px;
+}
+.UserName , .AdresseUser , .UserVille , .UserRegion, .pp1{
+    font-size: 18px;
+    font-weight: 700;
+}
+.AdresseUser , .UserVille , .UserRegion , .UserPhone{
+    font-size: 12px;
+}
+
+
+.UserInfos{
+    width: fit-content;
+    height: fit-content;
+    margin-top: -13px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.MfBtn{
+    width: fit-content;
+    height: fit-content;
+    padding: 10px;
+    background-color: transparent;
+    border: 1px solid ;
+    font-weight: 700;
+    border-radius: 40px;
+    font-size: 13px;
+    cursor: pointer;
+    outline: none;
+}
+
+.PBTN{
+    background-color: #d40f2d;
+    padding: 13px;
+    color: #fff;
+    border-radius: 30px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    outline: none;
+    border: none;
+    width: fit-content;
+    height: fit-content;
+    cursor: pointer;
+}
+.AddABTN{
+    padding: 13px;
+    border-radius: 30px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    outline: none;
+    width: fit-content;
+    height: fit-content;
+    background-color: transparent;
+    border: 1px solid ;
+    font-weight: 700;
+    border-radius: 40px;
+    font-size: 13px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #000;
+
+}
+
+.BTNS{
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+/* Paiment */
+
+
+.BTNSs , .dd{
+    height: fit-content;
+    width: 100%;
+    position: relative;
+}
+.BTNSs > button.PBTN{
+    position: absolute;
+    top: 20px;
+    right: 0;
+}
+.PaymentDiv{
+    display: flex;
+}
+
+.PText{
+    display: flex;
+    flex-direction: column;
+}
+.PaymentIcon{
+    width: 80px;
+    height: 80px;
+    border: 2px solid #f6b60e;
+    border-radius: 8px;
+    background-image: url("../icons/delivery-truck-truck-svgrepo-com.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50px 50px;
+}
+
+
+
+
+
+/* Total Price */
+
+.TotalPricesCont{
+    width: fit-content;
+    height: fit-content;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.TotalPricesDiv{
+    width: fit-content;
+    height: fit-content;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(5,16,55,.04);
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 10px;
+}
+
+.TotalPricesDiv hr{
+    width: 99%;
+    margin: 0 auto;
+}
+
+.TotalPricesDiv > div{
+    width: 350px;
+    height: fit-content;
+    display: flex;
+    justify-content: space-between;
+    padding: 18px;
+}
+
+.TotalPricesDiv > div span:first-child:not(.TotalPriceS){
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.TotalPricesDiv > div:nth-child(1) , .TotalPricesDiv > div:nth-child(2){
+    border-bottom: 1px solid gray;
+}
+
+.TotalPrice , .TotalPriceS{
+    font-weight: bolder;
+}
+.FraisLivraison{
+    color: #58c40e;
+    font-style: normal;
+    font-weight: 600;
+}
+
+
+.Pm{
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(5,16,55,.04);
+    display: flex;
+    flex-direction: column;
+    padding: 17px;
+}
+.Pm > div{
+    height: fit-content;
+    text-align: center;
+    padding: 7px;
+    margin-bottom: 20px;
+}
+.LocalisationIcon img{width: 30px;
+    height: 50px;}
+.Pm > div span{
+    font-style: normal;
+    font-weight: 550;
+    font-size: 17px;
+    color: #58c40e;
+    position: relative;
+}
+
+.Pm > div span::before{
+    content: "";
+    width: 16px;
+    height: 16px;
+    outline: none;
+    border: none;
+    margin-top: 2px;
+    background-image: url("/Photo/unlock-svgrepo-com.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size:cover; 
+    position: absolute;
+    left: -23px;
+}
+
+.Pm img{
+    width: 360px;
+    height: 60px;
+
+}
+
+
+
+/* order details */
+
+
+.OrdDetailsContainer{
+    position: relative;
+    top: -130px;
+}
+
+
+
+
+
+.Activepdiv {
+    border: 1px solid red;
+}
+
+#PaymentDivID2 {
+    display: flex !important;
+    flex-direction: column;
+    gap: 10px !important;
+}
+#PaymentDivID2 > div{
+    display: flex;
+    gap: 10px;
+}
+
+.dd{
+    width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+
+#email-message{
+    font-size: 16px;
+    font-weight: 600;
+    font-family: "Open Sans",Helvetica,Arial,sans-serif;
+
+}
+
+
+.aide > div{
+    background-image: url('../icons/phone-call-svgrepo-com.svg') !important;
+    background-repeat: no-repeat !important;
+    background-position: cover !important;
+    border: 1px solid;
+}

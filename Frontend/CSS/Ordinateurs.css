@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.filter{
+    background-color: red;
+    width: 250px;
+    padding: 15px;
+    height: fit-content;
+}
+
+.AsidElement{
+    margin-bottom: 15px;
+}
+
+
+#PriceB{
+    display: block;
+    width: 100%;
+    border: none;
+    text-align: left;
+    font-size: 15px;
+    padding: 3px;
+}
+
+#PriceB:hover{
+    cursor: pointer;
+}

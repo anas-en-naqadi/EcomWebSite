@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../CSS/NavBarStyle.css">
+        <link rel="stylesheet" href="../CSS/Index.css">
+        <link rel="stylesheet" href="../CSS/PhoneDetails.css"> 
+        <link rel="stylesheet" href="../CSS/panier.css"> 
+        <link rel="stylesheet" href="../CSS/Spinner.css">
+        <link rel="stylesheet" href="../CSS/footer.css">
+        <link rel="stylesheet" href="../CSS/Login.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+        <title>Phone Details</title>
+        <style>
+            .PhoneContainer{
+                margin-top: 120px !important;
+            }
+            .ImgContainer{
+                margin-top: -10px !important;
+            }
+            .IncrementQ , .DecrementQ{
+                    margin-top: -5px;
+                }
+                .InpCont{
+                    height: 20px !important;
+                }
+                .NoPhoneInStock{
+                    padding: 0;
+                    text-align: center;
+                    padding: 5px;
+                    padding-bottom: 0;
+                }
+                .AddToChartBTN:hover{
+                background-color: #d40f2d;
+            }
+              ul.phone-recomendation{
+                width: fit-content;
+                height: fit-content;
+                overflow-x: scroll;
+                display: flex;
+                gap: 30px;
+                scroll-behavior: smooth;
+             }
+             ul.phone-recomendation li {
+                width: fit-content;
+                height: fit-content;
+                display: flex;
+                margin-bottom: 10px;
+                padding: 10px;
+                margin-top: 10px;
+                box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+                cursor: pointer;
+             }
+             ul.phone-recomendation::-webkit-scrollbar , .containerParent::-webkit-scrollbar{
+                display: none;
+             }
+             div.Element{
+                display: flex;
+                flex-direction: column;
+             }
+             .itm {
+                margin-top: 15px;
+            }
+            .containerParent{
+                margin: 50px  0 0;
+                max-width: 96%;
+                width: fit-content;
+                height: 430px;
+                background-color: #fff;
+                display: flex;
+                flex-direction: column;
+                margin-left: 25px !important;
+            }
+            .containerHeader {
+                color: #fff;
+                padding: 10px;
+                font-size: 25px;
+                font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI,
+                    Helvetica Neue, Arial, sans-serif;
+            }
+            .productName{
+                color: #333;
+                font-size: 14px;
+                font-weight: 600;
+                font-family: "Open Sans", Helvetica, Arial, sans-serif;
+                margin-top: 15px;
+            }
+            .productMarque{
+                color: #333;
+                font-size: 14px;
+                font-family: "Open Sans", Helvetica, Arial, sans-serif;
+                margin-top: 15px;
+
+            }
+            .productPrice{
+                color: #0099ff;
+                font-size: 20px;
+                font-weight: 600;
+                margin-top: 15px;
+            }
+
+            .productPrice + span.stock{
+                text-align: left;
+                font-size: 14px;
+                font-weight: 600;
+                margin-top: 15px;
+                background: #edf6e7;
+                text-transform: uppercase;
+                border-radius: 7px;
+                width: fit-content;
+                padding: 4px;
+            }
+            .container{
+                height: fit-content;
+                display: flex;
+                overflow: hidden;
+                position: relative;
+                margin: 11px auto;
+                margin-left: 15px;
+            }
+            .LivraisonDIV {
+                width: 180px;
+                height: fit-content;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #f6b60e;
+                font-weight: 700;
+                font-size: 14px;
+                border-radius: 10px;
+                color: #000;
+                margin-bottom: 7px;
+                padding: 7px;
+            }
+            container1 ul.ElementPhone {
+    width: fit-content;
+    height: fit-content;
+    overflow-x: scroll;
+    display: flex;
+    gap: 30px;
+    scroll-behavior: smooth;
+    }
+    </style>
+    </head>
+    <body>
+        <header>
+            <ul class="NavUl">
+                <li>
+                    <a href="../Html/index.html">
+                        <img src="../Uploads/navLogo.PNG" alt="Logo" style="width: 200px;height: 80px; margin-bottom: -30px;margin-top: -20px;"></li>
+                    </a>
+                <li>
+                    <input class="NavElement" type="text" name="Search" id="in1"  oninput="searchProd()" placeholder="Chercher un produit,une marque ou une catégorie">
+                    <div id="dropdown" class="dropdown-content" style="margin-left: -35px !important;"></div>
+                </li>
+                <li class="AllBtns">
+                    <button id="CatB">
+                        <span>Catégories</span>
+                        <div class="AllCat">
+                            <div>
+                                <a href="../Html/PhonesPage.html">Téléphones</a>
+                            </div>
+                            <div>
+                                <a href="../Html/PcPages.html">Ordinateurs</a>
+                            </div>
+                            <div>
+                                <a href="../Html/WatchPages.html">SmartWatches</a>
+                            </div>
+                            <div>
+                            <a href="../Html/TvPages.html">Télévision</a>
+                            </div>
+                        </div>
+                    </button>
+                    <button id="LoginL" onclick="ShowLogInForm()">Connexion</button>
+                    <a style="display: none;" id="user" href="../Html/userHome.html"><span id="nom-user"></span></a>
+                    <button class="NavElement bouttonNav" onclick="goToCartProd()" id="PanierB" type="button" style="cursor:pointer;">
+                        <span style="cursor: pointer;">Panier <span id="panierCount" style="color: red;">0</span></span>
+                      
+                    </button>
+                </li>
+            </ul>
+        </header>
+           
+        </div>
+        <main>
+            <div class="PhoneContainer">
+                <div class="ImgContainer">
+                    <img src="" alt="" id="img">
+                </div>
+                <div class="PhoneDetails">
+                    <span id="id_prod"></span>
+                    <span class="PhoneName productName"></span>
+                    <span>Telephone <span class="PhoneOS"></span></span>
+                    <span class="PhoneMarque productMarque"></span>
+                    <span class="PhonePrice productPrice"><span> DH</span></span>
+                    <span>Il nous rest que <span class="PhoneStock"></span> unités pour ce produit.</span>
+                    <div class="LivraisonDIV">
+                        <span>LIVRAISON GRATUITE</span>
+                    </div>
+                    <div class="NoPhoneInStock" style="font-size: 11px;"></div>
+                    <div class="QantiteDiv">
+                        <label for="QantiteProduitID" style="font-weight: 500; font-size: 18px;">Quantité&ThinSpace; &ThinSpace;</label>
+                        <div class="InpCont">
+                            <button class="DecrementQ" onclick="DecrimentInput(parseInt(document.querySelector('.PhoneStock').innerHTML))">-</button>
+                            <input type="number" name="QantiteProduit" id="QantiteProduitID" value="1" min="1" required readonly>
+                            <button class="IncrementQ" onclick="IncrimentInput(parseInt(document.querySelector('.PhoneStock').innerHTML))">+</button>
+                            
+                        </div>
+                    </div>
+                    <button class="AddToChartBTN" onclick="inserToCart(this)" >Ajouter au Panier</button>
+                    <div class="MoreDetails">
+                        <span>EN BREF</span>
+                        <span>MÉMOIRE DE STOCKAGE : <span class="PhoneStockage"></span></span>
+                        <span>RESEAU : <span class="PhoneReseau"></span></span>
+                        <span>COULEUR : <span class="PhoneColor"></span></span>
+                        <span>DOUBLE SIM : <span class="PhoneSIM"></span></span>
+                    </div>
+                </div>
+            </div>
+
+                <table class="AllPhoneDetails" border="">
+                    <caption>Fiche technique</caption>
+                    <tr>
+                        <td>MARQUE</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>NOM PRODUIT</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>TAILLE D'ECRAN</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>MÉMOIRE RAM</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>MÉMOIRE DE STOCKAGE</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>SYSTÈME D'EXPLOITATION</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>RESEAU</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>COULEUR</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>APPAREIL PHOTO</td>
+                        <td></td>
+                    </tr>
+                    <!-- <tr>
+                        <td>DOUBLE SIM</td>
+                        <td></td>
+                    </tr> -->
+                    <tr>
+                        <td>CAPACITE DE BATTERIE</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>HAUTEUR (CM)</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>LARGEUR (CM)</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>PROFONDEUR (CM)</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>POIDS EN GRAMMES</td>
+                        <td></td>
+                    </tr>
+                </table>
+
+                <div class="containerParent">
+                    <div class="containerHeader" style="background-color: #0099FF;">Découvrire d'autre produits</div>
+        
+                    <div class="container container1" id="container1">
+                        <div class="right-arrow active">
+        
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                              </svg> 
+                        </div>
+        
+                        <ul class="phone-recomendation">
+                           
+        
+                        </ul>
+        
+                        <div class="left-arrow">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+                              </svg>                    
+                        </div>
+                    </div>
+
+                </div>
+                
+                <div  class="spinner-container">
+                    <div class="spinner" id="spinner">
+                     <img src="../Uploads/giphy.gif" alt="">
+                    </div>
+                  </div>
+
+
+            
+
+        </main>
+
+         <!-- Connectrer -->
+         <div class="OverLay" id="OverLayID">
+            <form action="" class="LogInForm" id="LogInFormID">
+                <div class="hDiv">
+                    <h2>Connectez-vous</h2>
+                    <button type="button" onclick="HideLoginForm()"></button>
+                </div>
+                <input type="email" name="Email" id="" placeholder="Email Adresse" required>
+                <input type="password" name="Pass" id="" placeholder="Mot de passe" required>
+                <div class="Pdiv">
+                    <div class="Cdiv">
+                        <input type="checkbox" name="" id="checkbox">
+                        <label for="checkbox">Resté connecté</label>
+                    </div>
+                    <a href="">Mot de passe oublié ?</a>
+                </div>
+                <button type="submit">ME CONNECTER</button>
+                <span class="ou">OU</span>
+                <div class="FbDiv">
+                    <span>Connectez-vous avec FaceBook</span>
+                </div>
+                <div class="GDiv">
+                    <span>Connectez-vous avec Google</span>
+                </div>
+                <button class="SignIn" onclick="ShowSignInForm()">Inscrivez-vous</button>
+            </form>
+        </div>
+
+        <!-- Inscrire -->
+        <div class="OverLay" id="OverLayID2">
+            <form action="" class="SignInForm" id="LogInFormID2">
+                <div class="hDiv">
+                    <h2>Inscrivez-vous</h2>
+                    <button type="button"  onclick="HideSignInForm()"></button>
+                </div>
+                <input type="email" name="Email" id="EmailInp" placeholder="Email Adresse" required style="display: block;">
+                <input type="text" name="Nom" id="NomInp" placeholder="Nom" required style="display: none;">
+                <input type="text" name="Prenom" id="PrenomInp" placeholder="Prenom" required style="display: none;">
+                <input type="text" name="Phone" id="PhoneID" placeholder="Numéro Télephone" required style="display: none;">
+                <input type="password" name="Pass" id="PassInp" placeholder="Mot de passe" required style="display: none;">
+                <span id="Messg"></span>
+                <button class="Contunue" id="NextID" type="button" onclick="ChangeInput()">CONTUNIER</button>
+                <button type="submit" style="display: none;" id="SubmitID">Inscrivez-vous</button>
+                <span class="ou">OU</span>
+                <div class="FbDiv">
+                    <span>Connectez-vous avec FaceBook</span>
+                </div>
+                <div class="GDiv">
+                    <span>Connectez-vous avec Google</span>
+                </div>
+            </form>
+        </div>
+        <!-- ------------- Footer ------------ -->
+        <footer class="footer">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Company</th>
+                        <th>Get Help</th>
+                        <th>Categories</th>
+                        <th>Follow Us</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Privacy Policy</td>
+                        <td>Payment Options</td>
+                        <td><a href="../Html/WatchPages.html">Smart Watches</a></td>
+                        <td>Facebook</td>
+                    </tr>
+                    <tr>
+                        <td>Our Services</td>
+                        <td>Orders Stauts</td>
+                        <td><a href="../Html/PcPages.html">Laptops</a></td>
+                        <td>Instagram</td>
+
+                    </tr>
+                    <tr>
+                        <td>About Us</td>
+                        <td>Visit Website</td>
+                        <td><a href="../Html/PhonesPage.html">Phones</a></td>
+                        <td>Youtube</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Shipping</td>
+                        <td><a href="../Html/TvPages.html">TV</a></td>
+                        <td>LinkedIN</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+        </footer>
+
+        <script src="/EcomWebSite-main2/Site Web Ecommerce/backend/JS/ProductDetails/phoneDetails.js" ></script>
+        <script src="../JavaScript/ChangeInputValue.js"></script>
+        
+        <script src="/EcomWebSite-main2/Site Web Ecommerce/backend/JS/Cart/addToCart.js"></script>
+        <script src="/EcomWebSite-main2/Site Web Ecommerce/backend/JS/ProductDetails/recomendation.js"></script>
+        <script  src="../JavaScript/AfficheFormeProduits.js"></script>
+        <script src="/EcomWebSite-main2/Site Web Ecommerce/backend/JS/Accounts/SEND.js"></script>
+        <script src="../JavaScript/main.js"></script>
+    </body>
+</html>

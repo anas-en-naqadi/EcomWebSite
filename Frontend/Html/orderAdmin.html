@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/Dashbord.css">
+    <link rel="stylesheet" href="../CSS/Produits.css">
+    <link rel="stylesheet" href="../CSS/OrderAdmin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Order</title>
+    <style>
+        .Content{
+            flex-direction: row !important;
+        }
+        #OrdTableDIVtable td:nth-child(5){
+
+            width: 10px !important;
+        }
+        .sh{
+            outline: none;
+            height: 20px !important;
+            width: 270px !important;
+            margin-left: 15px !important;
+            padding: 5px !important;
+        }
+        .sl{
+            width: 300px !important;
+            height: 20px !important;
+            margin-top: 5px;
+            padding: 0;
+            text-align: center;
+        }
+        #AddProdB{
+            width: fit-content;
+        }
+
+        #table th{
+            background-color: brown;
+        }
+        .table-bordered{
+            border-collapse: collapse;
+        }
+        .table-bordered tbody tr{
+            border: none;
+        }
+        .table-bordered tbody tr:nth-child(2n +1){
+            background-color: #a7b4bd2e;
+        }
+
+        #ContentID img{
+            width: 60px;
+            height: 60px;
+        }
+
+        #table img{
+            width: 85px !important;
+            height: 85px !important;
+        }
+
+        .OrdContainerUser , .OrdContainer{
+            height: 900px !important;
+            overflow-y: scroll !important;
+            padding: 10px !important;
+        }
+        .OrdDetailsDIV{
+            justify-content: unset !important;
+            gap: 60px !important;
+        }
+
+    .ProdectTable{
+        width: 100% !important;
+    }
+
+    .Tdiv{
+        width: 550px;
+    }
+    .ProdectTable img{
+        width: 90px !important;
+        height: 90px !important;
+    }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="SideBar">
+            <div class="AdminLogo">
+            </div>
+            <p class="P1">Bienvenue, &ThinSpace; Admin</p>
+
+            <button class="SideBarBtn" id="Tb" onclick="showDashBord()">
+                Tableau de Borde            
+            </button>
+            <button class="SideBarBtn" id="Ord" onclick="showUsers()">
+                Users
+            </button>
+            <button class="SideBarBtn" id="Pro" onclick="showProduits()">
+                Produits
+            </button>
+            <button class="SideBarBtn" id="Ord" onclick="showOrders()">
+                Ordres
+            </button>
+        </div>
+
+            <!-------------------------------- DashBord ------------------------------ -->
+
+            <div class="Content" id="ContentID">
+                <div class="ContentHead" style="width: 116%;">
+                    <a href="">
+                        <img src="../icons/log-out-svgrepo-com.svg" alt="logout" width="40px">
+                    </a>
+                </div>
+                <div class="UserNumber ContentDiv">
+                    <img src="../icons/user.png" alt="UsersLogo">
+                    <span>Nombre d'utilisateurs</span>
+                    <span id="UserCounter">0</span>
+                </div>
+                <div class="CtegoriesNumber ContentDiv">
+                    <img src="../icons/shp.png" alt="UsersLogo">
+                    <span>Nombre de categories</span>
+                    <span id="CategoriesCounter">4</span> 
+                </div>
+                <div class="ProductsNumber ContentDiv">
+                    <img src="../icons/bx.png" alt="UsersLogo">
+                    <span>Nombre de produits</span>
+                    <span id="ProdectCounter">0</span> 
+                </div>
+                <div class="OrdersNumber ContentDiv">
+                    <img src="../icons/cat.png" alt="UsersLogo">
+                    <span>Nombre d'ordres</span>
+                    <span id="OrdersCounter">0</span> 
+                </div>
+            </div>
+
+       
+        <!-- user container-->
+        
+        <div class="OrdContainerUser" id="userContainerId" style="display: none;">
+             <!-- search input-->
+            <div class="search-box">
+                <span style="display: inline !important; font-size: 20px !important; font-weight: 500 !important; ">Chercher un utilisateur</span>
+                <input type="text" placeholder="Search..." id="search3" class="sh" oninput="findText('tbody3','search3','message1')">
+            </div>
+
+
+
+            <div class="OrdTableDIV" id="" style="width: 960px;">
+                <table class="OrdTable" border="" id="OrdTableDIVtable" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>name</th>
+                            <th>prename</th>
+                            <th>email</th>
+                            <th>password</th>
+                            <th>phone</th>
+                            <th>joined at</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="tbody3">
+<div id="message1">No Items was Found</div>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- -------------- Orders ------------ -->
+
+
+        <div class="OrdContainer" id="OrdContainerID" style="display: none;">
+             <!-- search input-->
+            <div class="search-box">
+                
+                <span style="display: inline !important; font-size: 20px !important; font-weight: 500 !important; " >Chercher un order</span>
+                <input type="text" placeholder="Search..." id="search1" class="sh" oninput="findText('tbody2','search1','message3')">
+            </div>
+
+            <div class="OrdTableDIV" style="width: 960px;">
+                <table class="OrdTable" border="" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Id_User</th>
+                            <th>Traking NO</th>
+                            <th>total</th>
+                            <th>Date</th>
+                            <th>Statut</th>
+                            <th>Order Details</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="tbody2">
+                        <div id="message3">No Items was Found</div>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+
+
+        <!-- --------------------- Order Details ---------  -->
+        <div class="OrdDetailsContainer" id="OrdDetailsContainerID" style="display: none;"> 
+            <div class="OrdHeaser">
+                <h2>Order détails</h2>
+                <button class="BackBTN" onclick="Back()">Retour</button>
+            </div>
+            <div class="OrdDetailsDIV">
+
+                <!-- -------------- LivraisonInfos --------------- -->
+                <div class="LivraisonInfos">
+                    <h2>Livraison détails</h2>
+                    <hr>
+
+                    <label for="UserNameID">Nom et Prenom</label>
+                    <input type="text" name="UserName" id="UserNameID" readonly>
+                    <label for="UserEmailID">Email</label>
+                    <input type="text" name="UserEmail" id="UserEmailID" readonly>
+                    <label for="UserPhoneID">Telephone</label>
+                    <input type="text" name="UserPhone" id="UserPhoneID" readonly>
+
+                    <label for="">Traking No</label>
+                    <input type="text" name="TrackingNo" id="" readonly value="">
+
+                    <label for="UserVilleID">Ville</label>
+                    <input type="text" name="UserVille" id="UserVilleID" readonly value="EL JADIDA">
+                    <label for="UserAdresseID">Adresse</label>
+                    <input type="text" name="UserAdresse" id="UserAdresseID" readonly value="112 rue des rues">
+                    <label for="UserCPID">Code Postal</label>
+                    <input type="text" name="UserCP" id="UserCPID" readonly value="21615">
+                    <label for="OrderDateID">La date du commande</label>
+                    <input type="text" name="OrderDate" id="OrderDateID" readonly value="04-12-2023">
+                </div>
+
+                <!-- ------------ ProduitDetails ------------- -->
+                <div class="ProduitDetails" id="ProduitDetails"  style="display: none;">
+                    <h2>Produits détails</h2>
+                    <hr>
+                    <div class="Tdiv">
+                        <table class="ProdectTable">
+                            <thead>
+                                <tr>
+                                    <th class="pth" colspan="2">Produit</th>
+                                    <th>Prix</th>
+                                    <th>Quantité</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbody">
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                    <hr>
+                    <div class="TotalPriceDIV">
+                        <span>Prix Total</span>
+                        <span class="TotalPriceValue">4154</span>
+                    </div>
+                    <hr>
+                    <label for="PaymentID">Méthode de Paiement</label>
+                    <span id="id_cmd" style="display: none;"></span>
+                    <input type="text" name="Payment" id="PaymentID" readonly value="Credit Card">
+                    <label for="statutID">Order statut</label>
+                    <select name="statut" id="statutID">
+                        <option id="status" value="Annuler">Annuler</option>
+                        <option  value="Completer" id="cmplt">Compléter</option>
+                       
+                        <option value="Annuler" id="annl">Annuler</option>
+                    </select>
+                    <button class="UpdateBTN" type="button" onclick="cancelOrder(this)">Mise a jour statut</button>
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-------------------------------- All prodects ------------------------------ -->
+        <div id="allProd" style="display: none;">
+            <h1>Liste des Produits</h1>
+
+            <div id="myModal" class="modal" >
+                <div class="modal-content" id="model">
+                    <span class="close" id="closeUpd">&times;</span>
+                    <form action="" id="update" enctype="multipart/form-data" >
+                        <div class="inp1">
+                            <label class="AjouterProduitFormeElement" for="">NOM PRODUITS</label>
+                            <input class="AjouterProduitFormeElement" type="text" name="nom" id="" required>
+                        </div>
+                        <div class="inp1">
+                            <label class="AjouterProduitFormeElement" for="">IMAGE </label>
+                            <input class="AjouterProduitFormeElement" type="file" name="image" accept="image/*" id="imag" required>
+                        </div>
+                        <div class="inp1">
+                            <label class="AjouterProduitFormeElement" for="">PRIX</label>
+                            <input class="AjouterProduitFormeElement" type="text" name="prix" id="" required>
+                        </div>
+                        <div class="inp1">
+                            <label class="AjouterProduitFormeElement" for="">STOCK</label>
+                            <input class="AjouterProduitFormeElement" type="text" name="stock" id="" required>
+                        </div>
+                        <button id="upd" type="button">update</button>
+                    </form>
+                </div>
+            </div>
+
+
+
+
+                <div style="display: flex; gap: 30px; justify-content: center; align-items: center;">
+                  <!-- search input-->
+                  <div class="search-box" >
+                    <span style="display: inline !important; font-size: 20px !important; font-weight: 500 !important; " >Chercher un produit</span>
+
+                    <input type="text" placeholder="Search..." class="sh" id="search2" oninput="findText('tbodyProd','search2','message2')">
+                    </div>
+
+
+
+                    <div class="list-choice" >
+                        CHOISISSEZ UNE CATEGORIE
+                        <select id="item-select" onchange="deleteRows()" class="sl" >
+                            <option value="vide"></option>
+                            <option value="Ordinateurs">Ordinateurs</option>
+                            <option value="Telephone">Telephone</option>
+                            <option value="Smart Watch">Smart Watch</option>
+                            <option value="Television">Television</option>
+                        </select>
+                    </div>
+                </div>
+
+    
+                <div class="ProduitDetails" id="list-choice" >
+                    <table border="" id="table" class="table table-bordered table-striped" style="width: 100% !important;">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>PRODUCT IMAGE</th>
+                            <th>PRODUCT NAME</th>
+                            <th>PRICE</th>
+                            <th>STOCK</th>
+                            <th>ACTION</th>
+                        </tr>
+                    </thead>
+                        <tbody id="tbodyProd">
+                            <div id="message2">No Items was Found</div>
+                        </tbody>
+                    </table>
+                    <button id="AddProdB" onclick="ShowForm()">Ajouter un produis</button>
+                </div>    
+    
+    
+    
+            <div class="AjouterProduitForme" id="AjouterProduitFormeID" method="post">
+                <button class="CloseFormeB" onclick="HideForm()"></button>
+                <h2 class="AjouterProduitFormeElement" style="margin: 0 0 25px ; ">Ajouter un produit a la liste</h2>
+                <label for="selectProdect">Categorie</label>
+    
+                <div class="CracrteristiqueDiv">
+                    <select name="selectedProduct" id="selectProd" class="AjouterProduitFormeElement"
+                        onchange="showDetailsForme()" required>
+                        <option value="vide"></option>
+                        <option value="Ordinateurs">Ordinateurs</option>
+                        <option value="Telephone">Telephone</option>
+                        <option value="Smart Watch">Smart Watch</option>
+                        <option value="Television">Television</option>
+                    </select>
+                    <!-- -----------------for phones --------------- -->
+                    <form method="post" id="PhoneForm" enctype="multipart/form-data">
+                        <label style="margin-bottom: 15px;" class="AjouterProduitFormeElement" for="NomProduit">Nom
+                            Produits</label>
+                        <input class="AjouterProduitFormeInput AjouterProduitFormeElement" type="text" name="NomProduit"
+                            id="" required>
+                        <label style="margin-bottom: 15px;" class="AjouterProduitFormeElement" for="PrixProduit">Prix en
+                            DH</label>
+                        <input class="AjouterProduitFormeInput AjouterProduitFormeElement" type="number" name="PrixProduit"
+                            id="" required>
+    
+                        <label style="margin-bottom: 15px;" class="AjouterProduitFormeElement" for="ImgProduit">Choisir
+                            image du
+                            produits :</label>
+                        <input class="AjouterProduitFormeInput AjouterProduitFormeElement" type="file" name="image" id=""
+                            required>
+                        <label style="margin-bottom: 15px;" class="AjouterProduitFormeElement"
+                            for="DescriptionProduits">Description du produit</label>
+                        <textarea name="DescriptionProduits" id="" cols="30" rows="10" required></textarea><br>
+    
+                        <label class="AjouterProduitFormeElement" for="">MARQUE</label>
+                        <input class="AjouterProduitFormeElement" type="text" name="PhoneMarqueInp" id="" required>
+                        <label class="AjouterProduitFormeElement" for="">TAILLE D'ECRAN</label>
+                        <input class="AjouterProduitFormeElement" type="text" name="PhoneTailEcran" id="" required>
+                        <label class="AjouterProduitFormeElement" for="">MEMOIRE RAM</label>
+                        <input class="AjouterProduitFormeElement" type="text" name="PhoneRAMInp" id="" required>
+                        <label class="AjouterProduitFormeElement" for="">MEMOIRE STOCKAGE</label>
+                        <input class="AjouterProduitFormeElement" type="text" name="PhoneStokage" id="" required>
+                        <label class="AjouterProduitFormeElement" for="">SYSTÈME D'EXPLOITATION</label>
+                        <input class="AjouterProduitFormeElement" type="text" name="PhoneOSInp" id="" required>
+                        <label class="AjouterProduitFormeElement" for="">RESEAU</label>
+                        <input class="AjouterProduitFormeElement" type="text" name="PhoneReseauInp" id="" required>
+                        <label class="AjouterProduitFormeElement" for="">COULEUR</label>
+                        <input class="AjouterProduitFormeElement" type="text" name="PhoneCouleurInp" id="" required>
+                        <label class="AjouterProduitFormeElement" for="">APPAREIL PHOTO</label>
+                        <input class="AjouterProduitFormeElement" type="text" name="PhoneCameraInp" id="" required>
+                        <label class="AjouterProduitFormeElement" for="">POIDS EN GRAMMES</label>
+                        <input class="AjouterProduitFormeElement" type="text" name="PhoneGrammesPcInp" id="" required>
+                        <label class="AjouterProduitFormeElement" for="">HAUTEUR (CM)</label>
+                        <input class="AjouterProduitFormeElement" type="text" name="PhoneHauteurInp" id="" required>
+                        <label class="AjouterProduitFormeElement" for="">LARGEUR (CM)</label>
+                        <input class="AjouterProduitFormeElement" type="text" name="PhoneLargeurInp" id="" required>
+                        <label class="AjouterProduitFormeElement" for="">PROFONDEUR (CM)</label>
+                        <input class="AjouterProduitFormeElement" type="text" name="PhoneProfondeurInp" id="" required>
+                        <label class="AjouterProduitFormeElement" for="">Stock</label>
+                        <input class="AjouterProduitFormeElement" type="number" name="stock" id="" required>
+                        <button class="AjouterProduitFormeElement ValidForm" type="button"
+                            onclick="phone()">Valider</button>
+                    </form>
+    
+                    <!-- -----------------for pc --------------- -->
+                    <form method="post" id="PcForm" enctype="multipart/form-data">
+                        <label style="margin-bottom: 15px;" class="AjouterProduitFormeElement" for="NomProduit">Nom
+                            Produits</label>
+                        <input class="AjouterProduitFormeInput AjouterProduitFormeElement" type="text" name="NomProduit"
+                            id="" required>
+                        <label style="margin-bottom: 15px;" class="AjouterProduitFormeElement" for="PrixProduit">Prix en
+                            DH</label>
+                        <input class="AjouterProduitFormeInput AjouterProduitFormeElement" type="number" name="PrixProduit"
+                            id="" required>
+    
+                        <label style="margin-bottom: 15px;" class="AjouterProduitFormeElement" for="ImgProduit">Choisir
+                            image du
+                            produits :</label>
+                        <input class="AjouterProduitFormeInput AjouterProduitFormeElement" type="file" name="image" id=""
+                            required>
+                        <label style="margin-bottom: 15px;" class="AjouterProduitFormeElement"
+                            for="DescriptionProduits">Description du produit</label>
+                        <textarea name="DescriptionProduits" id="" cols="30" rows="10" required></textarea><br>
+    
+                        <label class="AjouterProduitFormeElement" for="">FREQUENCE</label>
+                        <input class="AjouterProduitFormeElement" type="text" name="PcFrequence" id="" required>
+                        <label class="AjouterProduitFormeElement" for="">MARQUE</label>
+                        <input class="AjouterProduitFormeElement" type="text" name="PcMarqueInp" id="" required>
+                     
+                        <label class="AjouterProduitFormeElement" for="">TAILLE D'ECRAN</label>
+                        <input class="AjouterProduitFormeElement" type="text" name="PcTailEcInp" id="" required>
+                        <label class="AjouterProduitFormeElement" for="">MEMOIRE RAM</label>
+                        <input class="AjouterProduitFormeElement" type="text" name="PcRamInp" id="" required>
+                        <label class="AjouterProduitFormeElement" for="">CAPACITE STOCKAGE </label>
+                        <input class="AjouterProduitFormeElement" type="text" name="PcStockage" id="" required>
+                        <label class="AjouterProduitFormeElement" for="">TYPE DE DISQUE DURE</label>
+                        <input class="AjouterProduitFormeElement" type="text" name="PcDisquedure" id="" required>
+                        <label class="AjouterProduitFormeElement" for="">CARTE GRAPHIQUE</label>
+                        <input class="AjouterProduitFormeElement" type="text" name="PcCarteGraphInp" id="" required>
+                        <label class="AjouterProduitFormeElement" for="">SYSTÈME D'EXPLOITATION</label>
+                        <input class="AjouterProduitFormeElement" type="text" name="PcOSPcInp" id="" required>
+                        <label class="AjouterProduitFormeElement" for="">COULEUR</label>
+                        <input class="AjouterProduitFormeElement" type="text" name="PcCoulourInp" id="" required>
+                        <label class="AjouterProduitFormeElement" for="">PROCESSEUR</label>
+                            <input class="AjouterProduitFormeElement" type="text" name="PcProcesseurPcInp" id="" required>
+                            <label class="AjouterProduitFormeElement" for="">BATTERIE</label>
+                        <input class="AjouterProduitFormeElement" type="text" name="PcBatteryInp" id="" required>
+                        <label class="AjouterProduitFormeElement" for="">POIDS EN GRAMMES</label>
+                        <input class="AjouterProduitFormeElement" type="text" name="PcGrammesInp" id="" required>
+                        <label class="AjouterProduitFormeElement" for="">HAUTEUR (CM)</label>
+                        <input class="AjouterProduitFormeElement" type="text" name="PcHauteurInp" id="" required>
+                        <label class="AjouterProduitFormeElement" for="">LARGEUR (CM)</label>
+                        <input class="AjouterProduitFormeElement" type="text" name="PcLargeurInp" id="" required>
+                        <label class="AjouterProduitFormeElement" for="">PROFONDEUR (CM)</label>
+                        <input class="AjouterProduitFormeElement" type="text" name="PcProfondeurInp" id="">
+                        <label class="AjouterProduitFormeElement" for="">Stock</label>
+                        <input class="AjouterProduitFormeElement" type="number" name="stock" id="" required>
+                        <button class="AjouterProduitFormeElement ValidForm" type="button" onclick="pc()">Valider</button>
+    
+                    </form>
+    
+                    <!-- -----------------for TV --------------- -->
+                    <form method="post" id="TvForm" enctype="multipart/form-data">
+                        <label style="margin-bottom: 15px;" class="AjouterProduitFormeElement" for="NomProduit">Nom
+                            Produits</label>
+                        <input class="AjouterProduitFormeInput AjouterProduitFormeElement" type="text" name="NomProduit"
+                            id="" required>
+                        <label style="margin-bottom: 15px;" class="AjouterProduitFormeElement" for="PrixProduit">Prix en
+                            DH</label>
+                        <input class="AjouterProduitFormeInput AjouterProduitFormeElement" type="number" name="PrixProduit"
+                            id="" required>
+    
+                        <label style="margin-bottom: 15px;" class="AjouterProduitFormeElement" for="ImgProduit">Choisir
+                            image du
+                            produits :</label>
+                        <input class="AjouterProduitFormeInput AjouterProduitFormeElement" type="file" name="image" id=""
+                            required>
+                        <label style="margin-bottom: 15px;" class="AjouterProduitFormeElement"
+                            for="DescriptionProduits">Description du produit</label>
+                        <textarea name="DescriptionProduits" id="" cols="30" rows="10" required></textarea><br>
+    
+    
+    
+    
+                        <label class="AjouterProduitFormeElement" for="">MARQUE</label>
+                        <input class="AjouterProduitFormeElement" type="text" name="TVMarqueInp" id="" required>
+                        <label class="AjouterProduitFormeElement" for="">SMART TV</label>
+                        <input class="AjouterProduitFormeElement" type="text" name="TVSmartInp" id="" required>
+                        <label class="AjouterProduitFormeElement" for="">TYPE DU RECTROECLAIRAGE</label>
+                        <input class="AjouterProduitFormeElement" type="text" name="TVTypeEclairageInp" id="" required>
+                        <label class="AjouterProduitFormeElement" for="">NORME HD</label>
+                        <input class="AjouterProduitFormeElement" type="text" name="TVHDInp" id="" required>
+                        <label class="AjouterProduitFormeElement" for="">RESOULUTION</label>
+                        <input class="AjouterProduitFormeElement" type="text" name="TVResoulitionInp" id="" required>
+                        <label class="AjouterProduitFormeElement" for="">DIRECT WI-FI</label>
+                        <input class="AjouterProduitFormeElement" type="text" name="TVWifiInp" id="" required>
+                        <label class="AjouterProduitFormeElement" for="">TYPE ECLAIRAGE</label>
+                        <input class="AjouterProduitFormeElement" type="text" name="TVEclairageInp" id="" required>
+                        <label class="AjouterProduitFormeElement" for="">TAILLE ECRAN </label>
+                        <input class="AjouterProduitFormeElement" type="text" name="TVecran" id="" required>
+                        <label class="AjouterProduitFormeElement" for="">POIDS EN GRAMMES</label>
+                        <input class="AjouterProduitFormeElement" type="text" name="TVGrammesInp" id="" required>
+                        <label class="AjouterProduitFormeElement" for="">HAUTEUR (CM)</label>
+                        <input class="AjouterProduitFormeElement" type="text" name="TVHauteurInp" id="" required>
+                        <label class="AjouterProduitFormeElement" for="">LARGEUR (CM)</label>
+                        <input class="AjouterProduitFormeElement" type="text" name="TVLargeurInp" id="" required>
+                        <label class="AjouterProduitFormeElement" for="">PROFONDEUR (CM)</label>
+                        <input class="AjouterProduitFormeElement" type="text" name="TVProfondeurInp" id="" required>
+                        <label class="AjouterProduitFormeElement" for="">Stock</label>
+                        <input class="AjouterProduitFormeElement" type="number" name="stock" id="" required>
+                        <button class="AjouterProduitFormeElement ValidForm" type="button" onclick="tv()">Valider</button>
+    
+                    </form>
+    
+                    <!-- -----------------for Watsh --------------- -->
+                    <form method="post" id="WatchForm" enctype="multipart/form-data">
+                        <label style="margin-bottom: 15px;" class="AjouterProduitFormeElement" for="NomProduit">Nom
+                            Produits</label>
+                        <input class="AjouterProduitFormeInput AjouterProduitFormeElement" type="text" name="NomProduit"
+                            id="" required>
+                        <label style="margin-bottom: 15px;" class="AjouterProduitFormeElement" for="PrixProduit">Prix en
+                            DH</label>
+                        <input class="AjouterProduitFormeInput AjouterProduitFormeElement" type="number" name="PrixProduit"
+                            id="" required>
+    
+                        <label style="margin-bottom: 15px;" class="AjouterProduitFormeElement" for="ImgProduit">Choisir
+                            image du
+                            produits :</label>
+                        <input class="AjouterProduitFormeInput AjouterProduitFormeElement" type="file" name="image" id=""
+                            required>
+                        <label style="margin-bottom: 15px;" class="AjouterProduitFormeElement"
+                            for="DescriptionProduits">Description du produit</label>
+                        <textarea name="DescriptionProduits" id="" cols="30" rows="10" required></textarea><br>
+    
+    
+    
+    
+                        <label class="AjouterProduitFormeElement" for="">MARQUE</label>
+                        <input class="AjouterProduitFormeElement" type="text" name="WatchMarqueInp" id="" required>
+                        <label class="AjouterProduitFormeElement" for="">DIAMETRE</label>
+                        <input class="AjouterProduitFormeElement" type="text" name="Watchdiametre" id="" required>
+                        <label class="AjouterProduitFormeElement" for="">POIDS EN GRAMMES</label>
+                        <input class="AjouterProduitFormeElement" type="text" name="WatcGrammesInp" id="" required>
+                        <label class="AjouterProduitFormeElement" for="">HAUTEUR (CM)</label>
+                        <input class="AjouterProduitFormeElement" type="text" name="WatcHauteurInp" id="" required>
+                        <label class="AjouterProduitFormeElement" for="">LARGEUR (CM)</label>
+                        <input class="AjouterProduitFormeElement" type="text" name="WatcLargeurInp" id="" required>
+                        <label class="AjouterProduitFormeElement" for="">PROFONDEUR (CM)</label>
+                        <input class="AjouterProduitFormeElement" type="text" name="WatcProfondeurInp" id="" required>
+                        <label class="AjouterProduitFormeElement" for="">Stock</label>
+                        <input class="AjouterProduitFormeElement" type="number" name="stock" id="" required>
+                        <button class="AjouterProduitFormeElement ValidForm" type="button"
+                            onclick="watch()">Valider</button>
+    
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+    </main>
+
+    <script>
+
+        
+        function Back() {
+            document.getElementById("OrdContainerID").style.display = 'block'
+            document.getElementById("OrdDetailsContainerID").style.display = 'none'
+        }
+        function showDashBord(){
+            document.getElementById('ContentID').style.display = 'flex'
+            document.getElementById("OrdContainerID").style.display = 'none'
+            document.getElementById("allProd").style.display = 'none'
+            document.getElementById("userContainerId").style.display = 'none'
+        }
+        function ShowDetails() {
+            document.getElementById("OrdContainerID").style.display = 'none'
+            document.getElementById("OrdDetailsContainerID").style.display = 'block'
+            
+        }
+        function showUsers(){
+            document.getElementById('ContentID').style.display = 'none'
+            document.getElementById("OrdContainerID").style.display = 'none'
+            document.getElementById("allProd").style.display = 'none'
+            document.getElementById("userContainerId").style.display = 'flex'
+        }
+        function showProduits(){
+            document.getElementById("OrdContainerID").style.display = 'none'
+            document.getElementById('ContentID').style.display = 'none'
+            document.getElementById("allProd").style.display = 'flex'
+            document.getElementById("userContainerId").style.display = 'none'
+        }
+        function showOrders(){
+            document.getElementById("OrdContainerID").style.display = 'block'
+            document.getElementById('ContentID').style.display = 'none'
+            document.getElementById("allProd").style.display = 'none'
+            document.getElementById("userContainerId").style.display = 'none'
+        }
+        
+
+
+
+
+
+
+
+
+
+
+       
+
+
+
+
+
+
+      
+
+        function deleteRows() {
+  var tab = document.getElementById('table');
+  var rows = tab.querySelectorAll('tr');
+  
+  if (rows.length >= 1) {
+    for (var i = 1; i < rows.length; i++) {
+      rows[i].remove();
+    }
+    selectData();
+  } else {
+    alert("No rows to delete.");
+  }
+}
+
+
+
+function selectData() {
+  const req = new XMLHttpRequest();
+  var select = document.getElementById("item-select").value;
+
+  req.open(
+    "GET",
+    "http://localhost:3000/EcomWebSite-main2/Site%20Web%20Ecommerce/backend/PHP/Admin/getData.php?type=" + select
+  );
+  req.send();
+
+  req.onload = function () {
+    if (req.status === 200 || req.readyState === 4) {
+      try {
+        const data =JSON.parse( req.response);
+       
+        if (data && Array.isArray(data)) {
+          const tab = document.getElementById("tbodyProd");
+          data.forEach((element) => {
+            const tr = document.createElement("tr");
+            const td1 = document.createElement("td");
+            const td2 = document.createElement("td");
+            const img = document.createElement("img");
+            const td3 = document.createElement("td");
+            const td4 = document.createElement("td");
+            const td5 = document.createElement("td");
+            const td6 = document.createElement("td");
+           
+            if (select == "Ordinateurs") {
+              td1.textContent = element.id_pc;
+              img.src = "/EcomWebSite-main2/Site Web Ecommerce/backend/IMAGES/PC/"+element.image;
+              td3.textContent = element.nom_pc;
+            } else if (select == "Smart Watch") {
+              td1.textContent = element.id_watch;
+              img.src = "/EcomWebSite-main2/Site Web Ecommerce/backend/IMAGES/WATCH/"+element.image;
+              td3.textContent = element.nom_watch;
+            } else if (select == "Television") {
+              td1.textContent = element.id_tv;
+              img.src = "/EcomWebSite-main2/Site Web Ecommerce/backend/IMAGES/TV/"+element.image;
+              td3.textContent = element.nom_tv;
+            } else if (select == "Telephone") {
+              td1.textContent = element.id_tel;
+              img.src = "/EcomWebSite-main2/Site Web Ecommerce/backend/IMAGES/PHONE/"+element.image;
+          
+              td3.textContent = element.nom_tele;
+            }
+            
+           
+           
+            td2.appendChild(img);
+            td5.textContent = element.stock;
+            td4.textContent = element.prix;
+            const editBtn = document.createElement("button");
+            editBtn.id = "green";
+            editBtn.textContent = "Edit";
+            td6.appendChild(editBtn);
+
+            const deleteBtn = document.createElement("button");
+            deleteBtn.id="red";
+            deleteBtn.textContent = "Delete";
+            td6.appendChild(deleteBtn);
+
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            tr.appendChild(td3);
+            tr.appendChild(td4);
+            tr.appendChild(td5);
+            tr.appendChild(td6);
+
+            tab.appendChild(tr);
+          });
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    } else {
+      console.log("No response");
+    }
+  };
+}
+
+
+
+
+
+
+
+    </script>
+
+
+    <script src="/EcomWebSite-main2/Site Web Ecommerce/backend/JS/admin/orderCheck.js"></script>
+    <script src="../JavaScript/AfficheFormeProduits.js"></script>
+    <script src="../JavaScript/AfficheDetailsForm.js"></script>
+    <script src="/EcomWebSite-main2/Site Web Ecommerce/backend/JS/admin/reqest.js"></script>
+    <script src="/EcomWebSite-main2/Site Web Ecommerce/backend/JS/Admin/fetchData.js"></script>
+    <script src="/EcomWebSite-main2/Site Web Ecommerce/backend/JS/admin/delete.js"></script>
+
+    
+</body>
+
+</html>

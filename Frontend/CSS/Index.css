@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+body{
+  background-color: #fff;
+  position: relative;
+}
+
+.MainProducts {
+  width: 90% !important;
+  height: 530px !important;
+  margin: 0px auto !important;
+  background-color: #fff !important;
+  position: relative !important;
+  margin-top: 30px !important;
+  border: 1px solid !important;
+  padding: 5px !important;
+}
+
+.d2 , .d3 , .d4{
+  display: none;
+}
+
+
+
+/* --------------- */
+.ScrollingBottons{
+  width: 95%;
+  height: fit-content;
+  margin: 10px auto;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.ScrollingBotton{
+  width: 20px;
+  height: 20px;
+  border: 1px solid #000;
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+.ScrollingBotton:hover{
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.ActiveScrollingBotton{
+  background-color: red;
+}
+
+/* ------------------------------------------------ */
+h2{
+  margin-left: 10px;
+  margin-top: 100px;
+}
+
+.m1::before{
+  content: '';
+  width: 200px;
+  height: 200px;
+  border: 1px solid #d40f2d;
+  background-color: transparent;
+  margin-right: 10px;
+}
+
+.container1 {
+  height: fit-content;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  margin: 11px auto;
+}
+
+.container1 svg {
+  width: 18px;
+  height: 18px;
+  padding: 2px;
+  color: #000;
+}
+
+
+li {
+  list-style: none;
+}
+
+
+.container1 ul.ElementPhone {
+  width: fit-content;
+  height: fit-content;
+  overflow-x: scroll;
+  display: flex;
+  gap: 30px;
+  scroll-behavior: smooth;
+}
+.container1 li:first-child{
+  margin-left: 10px;
+}
+.container1 li:last-child{
+  margin-right: 10px;
+}
+.container1 ul.ElementPhone::-webkit-scrollbar {
+  display: none;
+}
+
+span {
+  display: block;
+}
+
+.container1 ul.ElementPhone li {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  margin-bottom: 10px;
+  padding: 10px;
+  margin-top: 10px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  cursor: pointer;
+}
+
+.left-arrow,
+.right-arrow {
+  position: absolute;
+  height: fit-content;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 50%;
+  display: none;
+  z-index: 1;
+}
+
+.right-arrow {
+  right: 0;
+  top: 45%;
+}
+
+.left-arrow {
+  left: 0;
+  top: 45%;
+}
+
+.left-arrow:hover,
+.right-arrow:hover {
+  background-color: #dfe6e9;
+  cursor: pointer;
+}
+
+.container1:hover {
+  .left-arrow.active,
+  .right-arrow.active {
+    display: flex;
+  }
+}
+
+.itm {
+  display: block;
+  margin-top: 20px;
+}
+
+
+img {
+  width: 160px;
+  height: 160px;
+}
+
+
+
+
+.Element > a + span{
+  font-weight: 500;
+  font-size: 15px;
+  font-family: 'Varela Round', sans-serif;
+}
+
+
+
+.Element > a + span + span{
+  font-size: 12px;
+  font-family: 'Varela Round', sans-serif;
+}
+
+.Element > a + span + span + span,.Element > a + span + span + span+span{
+  font-size: 13px;
+  font-weight: 700;
+  font-family: 'Varela Round', sans-serif;
+}
+
+.my2{
+  text-align: center;
+}
+.container li:hover{
+  border: 1px solid #0071e3;
+  border-radius: 15px;
+}
+div.p{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 15px;
+}
+div.p div:last-child{
+  display: flex;
+  justify-content: space-evenly;
+}
+.MoreProdect{
+  width: fit-content;
+  height: fit-content;
+  background-color: #a2a9ad96;
+  margin-left: 10px;
+  margin-top: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 5px;
+  border-radius: 10px;
+}
+.MoreProdect img{
+  width: 160px;
+  height: 160px;
+}
+
+.MoreProdect span{
+  font-size: 25px;
+  font-weight: 500;
+  font-family: 'Varela Round', sans-serif;
+
+}

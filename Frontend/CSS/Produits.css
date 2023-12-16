@@ -1,0 +1,234 @@
+.Content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+
+table {
+  width: 80%;
+  border-collapse: collapse;
+  font-size: 17px;
+  border-radius: 4px;
+  text-align: center;
+  
+}
+
+th {
+  background-color: brown;
+}
+
+th,
+td {
+
+  padding: 10px;
+  
+}
+
+#AddProdB {
+  background-color: #ff7675;
+  padding: 10px;
+  font-size: 20px;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+ margin-top: 50px;
+}
+img{
+  width: 200px;
+  height: 150px;
+}
+
+#AddProdB:hover {
+  cursor: pointer;
+}
+
+.AjouterProduitForme {
+  position: absolute;
+  top: 15%;
+  left: 55%;
+  width: fit-content;
+  height: 550px;
+  padding: 25px;
+  background-color: #d40f2d;
+  z-index: 1;
+  text-wrap: nowrap;
+  overflow-y: scroll;
+  visibility: hidden;
+ 
+}
+
+
+.AjouterProduitFormeElement,
+.ProduitDetails  {
+  font-family: tahoma;
+  position: relative;
+
+}
+.ProduitDetails{
+  width: 100% !important; 
+}
+select {
+  font-size: 17px;
+  padding: 7px;
+  outline: none;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  width: 100%;
+  height: fit-content;
+}
+
+.AjouterProduitForme input,
+.ProduitDetails input {
+  display: block;
+  width: 100%;
+  height: 23px;
+}
+body{
+  overflow-x:hidden;
+overflow-y: scroll;
+}
+*{
+  margin: 0;
+  padding: 0;
+}
+label {
+  font-size: large;
+  display: block;
+}
+main {
+  overflow-y: scroll;
+}
+textarea {
+  width: 360px;
+  height: 97px;
+  padding: 10px;
+  font-size: 15px;
+}
+#PhoneForm,#PcForm,#WatchForm,#TvForm{
+  display: none;
+  
+}
+
+
+.list-choice select{
+  width: 250px;
+  border-radius: 4px;
+}
+.CloseFormeB {
+  background-image: url("../icons/close-md-svgrepo-com.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 5px;
+  border-radius: 50%;
+}
+
+
+.CracrteristiqueDiv > div{
+    display: none;
+}
+
+
+.AjouterProduitForme button.ValidForm {
+  width: fit-content;
+  height: fit-content;
+  padding: 10px;
+  background-color: burlywood;
+  border-radius: 10%;
+  display: block;
+  margin-top: 10px;
+}
+
+#red ,#green{
+border-radius: 5px;
+margin: 5px;
+width: 60px;
+height: 40px;
+color: white;
+
+}
+#red {
+  background-color: red;
+  border-color: red;
+ 
+}
+
+#green {
+  background-color: rgb(148, 209, 148);
+  border-color: rgb(148, 209, 148);
+  
+}
+
+
+.modal-content button{
+  width: 100px;
+  height: 30px;
+  background-color: orange;
+  border-radius: 4px;
+  border: 1px solid gray;
+
+}
+.modal-content label{
+  font-size: 18px;
+ 
+}
+/* Target all input elements that are not the second child */
+.modal-content >.inp1:not(:nth-child(2)) input {
+  border-radius: 6px;
+  border: 1px solid gray;
+  height: 25px;
+}
+
+.inp1{
+  display: flex;
+  margin: 15px;
+  gap: 10px;
+}
+
+.modal {
+display: none;
+  position: fixed;
+  z-index: 7;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  overflow: auto;
+}
+
+.modal-content {
+  display: none;
+  margin-top: 100px;
+  background-color: #fefefe;
+  z-index: 10;
+  padding: 10px;
+  margin-left: 45%;
+ 
+  border: 1px solid gray;
+  border-radius: 6px;
+  text-align: center;
+  height: 210px;
+ 
+  width: 340px;
+ 
+ 
+ 
+
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}

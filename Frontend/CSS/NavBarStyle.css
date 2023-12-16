@@ -1,0 +1,283 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  overflow-y: auto;
+  overflow-x: hidden;
+
+}
+
+ul.NavUl{
+  position: fixed;
+  top: 0;
+  display: flex;
+  width: 100%;
+  height: fit-content;
+  background-color: #fff;
+  overflow:visible;
+  top: 0;
+  padding: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: -4px -3px 20px 0px;
+  z-index: 1;
+  list-style: none;
+  justify-content: space-evenly;
+  font-family: "Varela Round", sans-serif;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+#in1 {
+  width: 520px;
+  height: 30px;
+  padding-right: 27px;
+  padding-left: 10px;
+  background-image: url("/Uploads/search-interface-symbol.png");
+  background-repeat: no-repeat;
+  background-size: 16px 16px;
+  background-position: 98% center;
+  border: 1px solid #bdc3c7;
+  border-radius: 15px;
+  font-size: 15px;
+  outline: none;
+}
+.AllBtns{
+  width: 400px;
+  height: fit-content;
+  display: flex;
+  justify-content: space-between;
+}
+#LoginB , #PanierB , #CatB,#LoginL , #user{
+  padding: 7px;
+  background-color: #fff;
+  position: relative;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+#LoginB::before,#LoginL::before , #user::before{
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background-color: transparent;
+  background-image: url("../icons/user-alt-1-svgrepo-com.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  left: -30px;
+  top: 1px;
+}
+#CatB::before{
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background-color: transparent;
+  background-image: url("../icons/category-svgrepo-com.svg");
+
+  background-size: contain;
+  background-repeat: no-repeat;
+  left: -30px;
+  top: 1px;
+}
+#CatB{
+  position: relative;
+}
+#CatB:hover .AllCat{
+  display: flex;
+}
+#PanierB::before{
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background-color: transparent;
+  background-image: url("../icons/cart-shopping-svgrepo-com.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  left: -30px;
+  top: 1px;
+}
+
+#user , #user span{
+  text-decoration: none;
+  color: #000;
+  cursor: pointer;
+}
+#user:hover , #user span:hover{
+  text-decoration: underline;
+  color: #d40f2d;
+  cursor: pointer;
+
+}
+
+#add_more{
+  
+  display: none;
+  margin-left: 550px;
+  font-weight: bold;
+
+}
+
+.AllCat {
+  width: 140px;
+  height: fit-content;
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: calc(100%);
+  left: -25px;
+  background-color: #fff;
+  z-index: 3;
+  text-align: left;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  gap: 15px;
+}
+.AllCat div{
+  width: 100%;
+  height: fit-content;
+  display: flex;
+}
+.AllCat a{
+  color: #000;
+  text-decoration: none;
+  font-size: 16px;
+  height: 30px;
+  margin-top: 12px;
+  margin-left: 6px;
+}
+.AllCat a:hover{
+  text-decoration: underline;
+}
+.AllCat div:hover{
+  background-color: #f6b60e;
+  transition: background-color 0.3s ease-in;
+}
+.AllCat:hover .AllCat{
+  display: flex;
+}
+
+#PanierB{
+  position: relative;
+}
+
+
+/* drop down search */
+
+/* Style for dropdown items */
+.dropdown-item {
+
+  padding: 8px 12px;
+
+ 
+}
+#dropdown hr{
+  margin-top: 5px;
+  width: 300px;
+  margin-bottom: 5px;
+  
+}
+#dropdown div:hover{
+  cursor: pointer;
+}
+/* Style for the dropdown container */
+.dropdown-content {
+
+  display: none;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  left: 845px;
+  padding-bottom: 5px;
+  position: absolute;
+  background-color: #f9f9f9;
+  margin-top: -30px;
+  border-bottom-left-radius: 6px;
+  padding: 8px;
+  border-bottom-right-radius: 6px;
+  min-width: 360px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+
+
+.ShowMoreDIV{
+  background-color: transparent;
+  margin-top: 10px ;
+  text-align: center;
+}
+
+.ShowMoreDIV button{
+  border: none;
+  outline: none;
+  color: #4a4a4a;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+
+}
+
+.ShowMoreDIV button:hover{
+  color: #d40f2d;
+}
+
+.favicon{
+  border-radius: 50%;
+}
+
+
+#dropdown{
+  position: absolute;
+  left: 530px !important;
+  top: 88px !important;
+  border-top: none;
+  border-top-left-radius: none;
+  border-top-right-radius: none;
+  width: 530px;
+}
+
+
+.dropdown-item:hover{
+  text-decoration: underline #d40f2d;
+}
+
+#QantiteProduitID {
+ 
+  text-align: center;
+}
+
+
+::-webkit-scrollbar{
+  width: 10px;
+ 
+}
+::-webkit-scrollbar-thumb{
+  background-color: red;
+}
+::-webkit-scrollbar-track{
+  background-color: orange;
+}
+
+
+
+
+
+.ElementPhone li{
+  height: 350px !important;
+}
+.containerParent{
+  height: 465px !important;
+}
+.ListProducts{
+gap: 18px !important;
+}
+
+
+.PcLists , .WatchLists , .TvLists{
+  width: 1220px !important;
+  gap: 48px !important;
+  padding: 15px;
+}
+
+

@@ -1,0 +1,282 @@
+/* ---------------Panier----------------- */
+
+.PanierDivParent {
+  display: flex;
+  display: none;
+  flex-direction: column;
+  width: 365px;
+  height: 441px;
+  background-color: #fff;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  position: absolute;
+  z-index: 2;
+  top: calc(130%);
+  right: 5px;
+  cursor:default;
+  overflow: hidden;
+}
+
+.PanierDivParent::after{
+  content: "";
+  position: absolute;
+  top: -19px;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-left: 17px solid transparent;
+  border-right: 17px solid transparent;
+  border-bottom: 20px solid #bdc3c7;
+}
+
+.PanierDivParent .ClosePanierDiv {
+  width: 100%;
+  height: 5%;
+  background-color: #bdc3c7;
+  /* border-bottom: 1px solid; */
+  position: relative;
+}
+
+.PanierDivParent .ClosePanierDiv .ClosePanierBTN {
+  outline: none;
+  border-radius: 50%;
+  width: 21px;
+  height: 21px;
+  background-image: url("../icons/close-md-svgrepo-com.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  cursor: pointer;
+  position: absolute;
+  right: 2px;
+}
+
+
+.PanierDivParent .PanierDivProdects {
+  width: 100%;
+  height: 76%;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  /* overflow: scroll; */
+}
+.PanierDivProdects .pro1 {
+  display: flex;
+  padding-top: 10px;
+  height: 50%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+}
+.PanierDivProdects  .pro1:first-child{
+  margin-bottom: 15px;
+}
+#imageProduit {
+  width: 120px;
+  height: 120px;
+}
+.Names{
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  text-align: left;
+  gap: 10px;
+}
+
+#InpContP {
+  display: flex;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 0px 1px;
+  gap: 5px;
+  height: 20px;
+}
+#QantiteProduitID{
+  height: 22px;
+}
+.InpCont div.DecrementQ , .InpCont div.IncrementQ {
+  width: 25px;
+  height: 0px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  font-size: 20px;
+  text-align: center;
+}
+.InpCont div.IncrementQ {
+  margin-top: 3px;
+  font-size: 17px;
+
+}
+
+.InpCont input.InpP {
+  width: 20px;
+  height: 25px;
+  outline: none;
+  border: none;
+  font-size: 15px;
+}
+
+
+
+
+.pro1 + hr{
+  width: 90%;
+  margin: 0 auto;
+
+}
+/* .PanierDivParent .PanierDivProdects::-webkit-scrollbar{
+  display: none;
+} */
+
+.PanierDivParent .PanierDivTotalPrice {
+  width: 100%;
+  height: 20%;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(5, 16, 55, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 13px;
+}
+
+.PanierDivParent .PanierDivTotalPrice > div {
+  display: flex;
+  justify-content: center;
+  gap: 280px;
+  margin-top: 5px;
+}
+
+.GoToPanier {
+  width: 90%;
+  height: fit-content;
+  background: #d40f2d;
+  font-size: 16px;
+  outline: none;
+  border: none;
+  border-radius: 30px;
+  padding: 10px;
+  color: #fff;
+  cursor: pointer;
+}
+
+span {
+  display: inline;
+  cursor: text;  
+}
+
+.DeleteProdectBTN {
+  background-image: url("../icons/delete-svgrepo-com.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  width: 25px;
+  height: 25px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  right: 22px;
+  top: 50px;
+  margin-top: 5px;
+}
+.qDIV {
+  display: flex;
+  gap: 7px;
+  justify-content: center;
+  align-items: center;
+  margin-left: -95px;
+}
+
+.PanierTotalPrice {
+  margin-left: -70px;
+}
+
+
+.pro1 div > span {
+  font-size: 16px;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+}
+
+#nomProduit {
+  font-weight: 600;
+  font-size: 18px;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+}
+#prixProduit {
+  font-weight: 600;
+}
+
+
+.QantiteDiv label {
+  font-size: 15px;
+  cursor: text;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+
+
+
+
+
+
+.QantiteDiv {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 200px;
+  height: 50px;
+}
+.QantiteDiv label {
+  font-size: 18px;
+}
+.InpCont {
+  display: flex;
+  width: fit-content;
+  height: fit-content;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  border-radius: 10px;
+  padding: 2px;
+}
+
+
+
+.InpCont div {
+  width: 25px;
+  height: 32px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  font-size: large;
+}
+.InpCont input {
+  width: 20px;
+  height: 32px;
+  outline: none;
+  border: none;
+  font-size: 15px;
+}
+
+#QantiteDivID{
+  justify-content: unset;
+  gap: 7px;
+  height: 30px;
+}
+
+#InpContP {
+  display: flex;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 0px 1px;
+  gap: 5px;
+  height: 20px;
+}
+
+
+.QantiteDiv label {
+  font-size: 15px;
+  cursor: text;
+  font-weight: 500;
+  font-size: 12px;
+}

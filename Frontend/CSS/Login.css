@@ -1,0 +1,242 @@
+.OverLay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 10000;
+    opacity: 1;
+    display: none;
+}
+.LogInForm{
+    width: 400px;
+    height: 520px;
+    background-color: #fff;
+    padding: 18px;
+    font-size: 11px;
+    color: #333;
+    font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+    border-radius: 8px;
+    box-shadow: 0 0 12px 2px rgba(0,0,0,.35);
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    gap: 27px;
+}
+.LogInForm > .hDiv , .SignInForm >.hDiv{
+    display: flex;
+    justify-content: space-between;
+    height: fit-content;
+    align-items: center;
+    border-bottom: 1px solid #d9d9d9;
+}
+.LogInForm > .hDiv > h2 , .SignInForm >.hDiv > h2{
+    margin: 0;
+}
+.LogInForm > .hDiv button , .SignInForm >.hDiv button  {
+    width: 38px;
+    height: 38px;
+    background-image: url("/uploads/close-svgrepo-com.svg");
+    background-size: contain;
+    background-position: center center;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+.LogInForm > input{
+    background-color: #fff;
+    border: 0;
+    border: 1px solid #cccedd;
+    font-size: 14px;
+    height: 37px;
+    padding-left: 8px;
+    border-radius: 4px;
+    outline: none;
+}
+div.Pdiv{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.Cdiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    font-size: 13px;
+}
+input[type='checkbox']{
+    width: 17px;
+    height: 17px;
+}
+.Pdiv > a {
+    color: #000;
+    text-decoration: none;
+    font-size: 13px;
+}
+.Pdiv > a:hover{
+    text-decoration: underline;
+}
+
+button[type = 'submit'] , .Contunue{
+    background-color: #d40f2d !important;
+    color: #fff;
+    outline: none;
+    border: none;
+    text-align: center;
+    font-size: 14px;
+    width: 100%;
+    height: fit-content;
+    padding: 10px;
+    border-radius: 30px;
+    font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+}
+span.ou{
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    color: #d9d9d9;
+    position: relative;
+}
+span.ou::before{
+    content: '';
+    width: 182px;
+    height: 1px;
+    background-color: #d9d9d9;
+    position: absolute;
+    top: 50%;
+    left: 0;
+
+}
+span.ou::after{
+    content: '';
+    width: 182px;
+    height: 1px;
+    background-color: #d9d9d9;
+    position: absolute;
+    top: 50%;
+    right: 0;
+}
+
+.FbDiv , .GDiv{
+    background-color: #fff;
+    color: #000;
+    font-weight: 600;
+    padding: 14px 0;
+    font-size: 13.5px;
+    border-radius: 30px;
+    border: 1px solid #cccedd; 
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+}
+.FbDiv::before{
+    content: '';
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 24px;
+    background-image: url("/uploads/facebook-svgrepo-com.svg");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.GDiv::before{
+    content: '';
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 24px;
+    background-image: url("/uploads/google-svgrepo-com.svg");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.SignIn{
+    color: #d40f2d;
+    text-align: center;
+    font-size: 14px;
+    text-decoration: underline;
+    outline: none;
+    border: none;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+
+
+
+/* ------ SignIn fORM ------------ */
+
+.SignInForm{
+    width: 400px;
+    height: 250;
+    background-color: #fff;
+    padding: 18px;
+    font-size: 11px;
+    color: #333;
+    font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+    border-radius: 8px;
+    box-shadow: 0 0 12px 2px rgba(0,0,0,.35);
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    gap: 27px;
+}
+
+
+
+.SignInForm > input{
+    background-color: #fff;
+    border: 0;
+    border: 1px solid #cccedd;
+    font-size: 14px;
+    height: 37px;
+    padding-left: 8px;
+    border-radius: 4px;
+    outline: none;
+}
+
+
+#Messg{
+    font-size: 12px;
+    font-weight: 500;
+    color: #d40f2d;
+}
+
+
+
+.GoUp{
+    width: 35px;
+    height: 35px;
+    background-image: url("../icons/up-arrow-svgrepo-com.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    position: absolute;
+    cursor: pointer;
+    border: 1px solid #d40f2d;
+    border-radius: 50%;
+    background-color: #fff;
+  
+}
+.GoUpDiv{
+    position: fixed;
+    bottom: 38px;
+    left: 97%;
+    width: 100%;
+    display: none;
+}

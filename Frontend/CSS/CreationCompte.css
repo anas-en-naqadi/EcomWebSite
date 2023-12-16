@@ -1,0 +1,54 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #ced6e0;
+}
+
+
+.contenaire{
+    width: fit-content;
+    height: 450px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    margin: 15px auto;
+    border-radius: 10px;
+}
+
+
+.InputP{
+    margin-bottom: 30px;
+    height: 30px;
+    padding: 5px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+
+#nomInput{
+    margin-right: 10px;
+}
+
+#emailInput , #passWInput , #passWInput2 , #teleInput{
+    display: block;
+    width: 100%;
+}
+
+#VB{
+    width: 100%;
+    background: linear-gradient(90deg,#ff6b81,#ff6348);
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 10px;
+    color: #fff;
+}
+
+#VB:hover{
+    cursor: pointer;
+}

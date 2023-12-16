@@ -1,0 +1,171 @@
+body {
+    background-color: #fff;
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+  }
+  
+  .PcContainer {
+    margin: 30px 40px 20px;
+    padding: 20px;
+    display: flex;
+    width: 90%;
+    height: fit-content;
+  }
+  
+  .PcContainer .PcDetails {
+    margin-left: 70px;
+  }
+  .ImgContainer > img {
+    width: 420px;
+    height: 420px;
+  }
+  
+  .ImgContainer {
+    width: fit-content;
+    height: fit-content;
+    list-style: none;
+  }
+  
+  .PcDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+  .PcDetails .PcStock {
+    color: #d40f2d;
+  }
+  .MoreDetails {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #000;
+    padding: 12px;
+    gap: 7px;
+  }
+  
+  .MoreDetails span {
+    display: inline;
+    font-size: 15px;
+  }
+  
+  .MoreDetails > span:first-child {
+    font-weight: bolder;
+    font-size: 17px;
+  }
+  .PcDetails > button {
+    width: 400px;
+    height: 44px;
+    text-align: center;
+    outline: none;
+    border: none;
+    background-color: #000;
+    color: #fff;
+    font-size: large;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  .PcDetails > span,
+  .PcDetails > span > span {
+    display: inline;
+    font-size: 18px;
+  }
+  
+  .PcDetails > span:first-child {
+    font-weight: bolder;
+    font-size: 25px;
+  }
+  .QantiteDiv label {
+    font-size: 18px;
+  }
+  .InpCont {
+    display: inline-block;
+    width: fit-content;
+    height: fit-content;
+    border: 1px solid #000;
+    border-radius: 10px;
+    padding: 2px;
+  }
+  .InpCont button {
+    width: 25px;
+    height: 32px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    font-size: large;
+  }
+  .InpCont input {
+    width: 20px;
+    height: 32px;
+    outline: none;
+    border: none;
+    font-size: 15px;
+  }
+  
+  .InpCont input::-webkit-outer-spin-button,
+  .InpCont input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+  span.PhonePrice,
+  span.PhonePrice > span {
+    font-size: 29px;
+    font-weight: 700;
+    margin-right: 10px;
+    color: #000;
+  }
+  .NoPcInStock {
+    background-color: #edf6e7;
+    width: 55px;
+    height: 20px;
+    padding-top: 6px;
+    padding-left: 20px;
+    border-radius: 10px;
+    background-image: url("/Photo/close\ \(1\).png");
+    background-repeat: no-repeat;
+    background-position: 13px 7px;
+    background-size: 9px 9px;
+    text-align: center;
+    display: block;
+  }
+  /* -------------Table-------------------------- */
+  .AllPcDetails {
+    width: 97%;
+    height: fit-content;
+    margin: 10px auto auto 25px;
+    border-collapse: collapse;
+  }
+  
+  .AllPcDetails caption {
+    left: 0;
+    font-size: larger;
+    font-weight: bolder;
+    margin-bottom: 10px;
+    text-align: left;
+  }
+  
+  .AllPcDetails,
+  .AllPcDetails tr td {
+    border-left: none;
+    border-right: none;
+    border-top: none;
+  }
+  
+  .AllPcDetails tr td {
+    padding: 15px;
+  }
+  .AllPcDetails td:last-child {
+    width: 60%;
+    height: fit-content;
+  }
+  .AllPcDetails td {
+    color: #4a4a4a;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .containerParent {
+    margin: 20px auto auto 5px;
+    padding: 20px;
+    max-width: 95%;
+    width: fit-content;
+    height: fit-content;
+  }
